@@ -39,6 +39,10 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), TesKesehatanActivity::class.java))
         }
 
+        binding.btnNotifikasi.setOnClickListener {
+            startActivity(Intent(requireContext(), TesKesehatanActivity::class.java))
+        }
+
 
 
         return binding.root
