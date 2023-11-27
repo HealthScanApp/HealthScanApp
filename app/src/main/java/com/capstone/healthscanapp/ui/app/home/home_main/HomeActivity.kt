@@ -1,11 +1,13 @@
 package com.capstone.healthscanapp.ui.app.home.home_main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.ActivityBacklogBinding
 import com.capstone.healthscanapp.databinding.ActivityHomeBinding
+import com.capstone.healthscanapp.ui.app.home.home_camera.CameraActivity
 import com.capstone.healthscanapp.ui.app.home.home_fragment.HomeFragment
 import com.capstone.healthscanapp.ui.app.home.home_fragment.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -22,8 +24,13 @@ class HomeActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         // Inisialisasi FloatingActionButton dengan ID button_chat
-        val buttonChat = findViewById<FloatingActionButton>(R.id.button_Camera)
+        val buttonCamera = findViewById<FloatingActionButton>(R.id.button_Camera)
         bottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        buttonCamera.setOnClickListener {
+            intent = Intent(this@HomeActivity, CameraActivity::class.java)
+            startActivity(intent)
+        }
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
