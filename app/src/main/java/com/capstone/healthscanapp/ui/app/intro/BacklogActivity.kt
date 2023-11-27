@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.ActivityBacklogBinding
-import com.capstone.healthscanapp.databinding.ActivitySplashBinding
 import com.capstone.healthscanapp.local.pref.PrefsManager
-import com.capstone.healthscanapp.ui.app.home.HomeActivity
-import com.capstone.healthscanapp.ui.app.login.LoginActivity
+import com.capstone.healthscanapp.ui.app.home.home_main.HomeActivity
 
 class BacklogActivity : AppCompatActivity() {
 

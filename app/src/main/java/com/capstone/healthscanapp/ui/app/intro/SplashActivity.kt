@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.capstone.healthscanapp.databinding.ActivitySplashBinding
 import com.capstone.healthscanapp.local.pref.PrefsManager
-import com.capstone.healthscanapp.ui.app.home.HomeActivity
+import com.capstone.healthscanapp.ui.app.home.home_main.HomeActivity
 import com.capstone.healthscanapp.ui.app.login.LoginActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
