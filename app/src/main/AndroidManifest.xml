@@ -23,6 +23,9 @@
         android:theme="@style/Theme.HealthScanApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.app.home.home_main.NotifikasiActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.app.home.home_menu.TesKesehatanActivity"
             android:exported="false" />
         <activity

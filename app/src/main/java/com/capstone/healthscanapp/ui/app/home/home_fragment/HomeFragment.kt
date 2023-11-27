@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.capstone.healthscanapp.databinding.FragmentHomeBinding
+import com.capstone.healthscanapp.ui.app.home.home_main.NotifikasiActivity
 import com.capstone.healthscanapp.ui.app.home.home_menu.CatatanKonsumsiActivity
 import com.capstone.healthscanapp.ui.app.home.home_menu.KonsultasiActivity
 import com.capstone.healthscanapp.ui.app.home.home_menu.TesKesehatanActivity
@@ -40,7 +41,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnNotifikasi.setOnClickListener {
-            startActivity(Intent(requireContext(), TesKesehatanActivity::class.java))
+            startActivity(Intent(requireContext(), NotifikasiActivity::class.java))
         }
 
 

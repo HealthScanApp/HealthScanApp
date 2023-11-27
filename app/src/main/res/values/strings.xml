@@ -24,6 +24,8 @@
     <string name="konsultasi">Konsultasi</string>
     <string name="toko_bergizi">Toko Bergizi</string>
     <string name="tes_kesehatan">Tes Kesehatan</string>
+    <string name="notifikasi">Notifikasi</string>
+    <string name="notifikasi_informasi">Yahh..tidak ada notifikasi saat ini !</string>
 
 
 </resources>
