@@ -71,6 +71,10 @@ dependencies {
 
 
     implementation ("hu.autsoft:krate:2.0.0")
+    //glide library
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.13.0")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 
 
 }

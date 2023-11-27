@@ -10,6 +10,11 @@
     <string name="description_menu2">Dapatkan akses cepat dan praktis ke informasi kesehatan Anda, cukup dengan satu genggaman.</string>
     <string name="let_start">Rekam Riwayat Kesehatan dengan Simpel</string>
     <string name="description_menu3">Platform yang memudahkan pengguna untuk merekam, melacak, dan memantau kondisi kesehatan mereka dalam satu aplikasi. Memungkinkan pengelolaan informasi kesehatan secara terstruktur serta akses cepat ke saran medis dan pemantauan progres kesehatan.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="my">My</string>
+    <string name="todo">TODO</string>
 
 
 </resources>

@@ -8,6 +8,7 @@ import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.ActivityBacklogBinding
 import com.capstone.healthscanapp.databinding.ActivitySplashBinding
 import com.capstone.healthscanapp.local.pref.PrefsManager
+import com.capstone.healthscanapp.ui.app.home.HomeActivity
 import com.capstone.healthscanapp.ui.app.login.LoginActivity
 
 class BacklogActivity : AppCompatActivity() {
@@ -23,7 +24,7 @@ class BacklogActivity : AppCompatActivity() {
         prefsManager = PrefsManager(this)
         val btnStart = findViewById<Button>(R.id.btn_start)
         btnStart.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
             prefsManager.isExampleLogin = true
             finish()
         }
