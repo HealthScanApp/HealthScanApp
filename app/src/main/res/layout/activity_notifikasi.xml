@@ -9,7 +9,6 @@
     tools:context=".ui.app.home.home_main.NotifikasiActivity">
 
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:minHeight="?attr/actionBarSize"

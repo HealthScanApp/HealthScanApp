@@ -26,6 +26,8 @@
     <string name="tes_kesehatan">Tes Kesehatan</string>
     <string name="notifikasi">Notifikasi</string>
     <string name="notifikasi_informasi">Yahh..tidak ada notifikasi saat ini !</string>
+    <string name="logo">Logo</string>
+    <string name="poto_product">Poto_Product</string>
 
 
 </resources>
