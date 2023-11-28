@@ -26,6 +26,12 @@
     <string name="tes_kesehatan">Tes Kesehatan</string>
     <string name="notifikasi">Notifikasi</string>
     <string name="notifikasi_informasi">Yahh..tidak ada notifikasi saat ini !</string>
+    <string name="upload_gambar">Upoad Gambar</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="upload">Simpan</string>
+    <string name="empty_camera">Yahh..gagal memunculkan kamera!</string>
+    <string name="empty_take_photho">Gagal mengambil gambar, ulangi sekali lagi!</string>
 
 
 </resources>

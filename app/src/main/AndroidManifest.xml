@@ -23,6 +23,9 @@
         android:theme="@style/Theme.HealthScanApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.app.home.home_camera.IntentCameraActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.app.home.home_main.NotifikasiActivity"
             android:exported="false" />
         <activity
@@ -47,7 +50,7 @@
             android:name=".ui.app.login.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.app.intro.BacklogActivity"
+            android:name=".ui.app.home.home_intro.BacklogActivity"
             android:exported="false" />
         <activity
             android:name=".ui.app.login.LoginActivity"
@@ -56,7 +59,7 @@
             android:name=".ui.app.home.home_main.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.app.intro.SplashActivity"
+            android:name=".ui.app.home.home_intro.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

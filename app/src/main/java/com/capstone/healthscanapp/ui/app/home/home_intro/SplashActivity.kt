@@ -1,4 +1,4 @@
-package com.capstone.healthscanapp.ui.app.intro
+package com.capstone.healthscanapp.ui.app.home.home_intro
 
 import android.annotation.SuppressLint
 import android.content.Intent
