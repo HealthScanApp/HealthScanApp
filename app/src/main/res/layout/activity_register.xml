@@ -77,7 +77,7 @@
         />
 
     <Button
-        android:id="@+id/signUpButton"
+        android:id="@+id/RegisterButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_biru"
@@ -96,7 +96,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/googleSignUpButton"
+        android:id="@+id/googleRegisterButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_button"
