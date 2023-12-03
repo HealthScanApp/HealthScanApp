@@ -56,6 +56,21 @@
     <string name="subject_email">Ketentuan Kebijakan Privasi</string>
     <string name="isi_pesan">Kepada Tim Health Scan,\n\nSalam sejahtera,\n\nSaya adalah pengguna setia aplikasi Health Scan dan saya ingin mengetahui lebih lanjut tentang kebijakan dan privasi yang diterapkan dalam penggunaan aplikasi tersebut.\n\nApakah Anda bisa memberikan detail terkait bagaimana aplikasi Health Scan mengelola data pribadi pengguna? Saya sangat menghargai privasi saya dan ingin memastikan bahwa informasi yang saya berikan saat menggunakan aplikasi ini diperlakukan dengan aman dan sesuai dengan standar keamanan yang relevan.\n\nJika memungkinkan, saya juga ingin meminta salinan lengkap dari kebijakan privasi yang Anda terapkan. Informasi ini akan membantu saya untuk lebih memahami bagaimana data saya diperlakukan dan disimpan oleh aplikasi Health Scan.\n\nTerima kasih atas perhatian dan waktu yang Anda berikan untuk menjawab pertanyaan saya. Saya sangat menghargai transparansi dan komitmen Anda dalam menjaga keamanan informasi pengguna.\n\nDengan hormat,\n\n[Nama Anda]\n[Informasi Kontak Anda]</string>
     <string name="empty_apps">Tidak ada aplikasi email yang tersedia!</string>
+    <string name="imt">Indeks Masa Tubuh</string>
+    <string name="text_berat_badan">Berat Badan</string>
+    <string name="berat_badan">Berat Badan</string>
+    <string name="text_tinggi_badan">Tinggi Badan</string>
+    <string name="tinggi_badan">Tinggi Badan</string>
+    <string name="hasil">Hasil</string>
+    <string name="simpan">Simpan</string>
+    <string name="cm">Cm</string>
+    <string name="kg">Kg</string>
+    <string name="hasil_imt">Hasil IMT Anda adalah: %.2f</string>
+    <string name="pesan_error">Mohon masukkan tinggi dan berat badan yang valid</string>
+    <string name="hasil_kurang">Berat badan kurang.</string>
+    <string name="hasil_normal">Berat badan normal.</string>
+    <string name="hasil_indikasi">Berat badan berlebih (kecenderungan obesitas).</string>
+    <string name="hasil_obesitas">Obesitas.</string>
 
 
 </resources>
