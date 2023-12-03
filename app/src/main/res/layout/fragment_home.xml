@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.app.home.home_fragment.HomeFragment">
+    tools:context=".ui.app.ui.home_unit.HomeFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -78,8 +78,8 @@
 
                 <ImageView
                     android:id="@+id/btn_notifikasi"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:contentDescription="@string/todo"
                     android:src="@drawable/icon_notifikasi" />

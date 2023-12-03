@@ -1,4 +1,4 @@
-package com.capstone.healthscanapp.ui.app.home.home_camera
+package com.capstone.healthscanapp.ui.app.ui.home_camera
 
 import android.content.Intent
 import android.os.Build
@@ -18,6 +18,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.ActivityIntentCameraBinding
+import timber.log.Timber
 
 class IntentCameraActivity : AppCompatActivity() {
 
@@ -74,7 +75,7 @@ class IntentCameraActivity : AppCompatActivity() {
                     R.string.empty_camera,
                     Toast.LENGTH_SHORT
                 ).show()
-                Log.e(TAG, "startCamera: ${exc.message}")
+                Timber.tag(TAG).e("startCamera: " + exc.message)
             }
         }, ContextCompat.getMainExecutor(this))
     }

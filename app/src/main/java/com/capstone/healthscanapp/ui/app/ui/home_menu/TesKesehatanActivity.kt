@@ -1,4 +1,4 @@
-package com.capstone.healthscanapp.ui.app.home.home_menu
+package com.capstone.healthscanapp.ui.app.ui.home_menu
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

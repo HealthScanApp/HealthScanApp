@@ -6,10 +6,7 @@
     android:layout_width="match_parent"
     android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".ui.app.home.home_main.NotifikasiActivity">
-
-
-
+    tools:context=".ui.app.ui.home_main.NotifikasiActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:minHeight="?attr/actionBarSize"
@@ -30,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/notifikasi"
+            android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="20sp"
@@ -37,20 +35,14 @@
             android:layout_centerVertical="true" />
 
     </androidx.appcompat.widget.Toolbar>
-
-
-
-    <!-- ImageView -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
-        app:srcCompat="@drawable/no_notification"
+        app:srcCompat="@drawable/icons_notification"
         android:contentDescription="@string/todo"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
-
-    <!-- TextView -->
     <TextView
         android:id="@+id/text_nootifikasi"
         android:layout_width="match_parent"
@@ -59,13 +51,11 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:fontFamily="@font/poppins_regular"
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="@string/notifikasi_informasi"
         app:layout_constraintTop_toTopOf="@id/imageView"
         app:layout_constraintStart_toStartOf="@id/imageView"
         app:layout_constraintEnd_toEndOf="@id/imageView" />
-
-
-
 </RelativeLayout>

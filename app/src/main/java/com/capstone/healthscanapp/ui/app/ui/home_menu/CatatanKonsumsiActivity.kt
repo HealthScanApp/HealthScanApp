@@ -1,12 +1,12 @@
-package com.capstone.healthscanapp.ui.app.home.home_main
+package com.capstone.healthscanapp.ui.app.ui.home_menu
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.capstone.healthscanapp.R
 
-class IndeksMassaTubuhActivity : AppCompatActivity() {
+class CatatanKonsumsiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_indeks_massa_tubuh)
+        setContentView(R.layout.activity_catatan_konsumsi)
     }
 }

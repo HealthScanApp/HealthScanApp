@@ -1,4 +1,4 @@
-package com.capstone.healthscanapp.ui.app.home.home_intro
+package com.capstone.healthscanapp.ui.app.ui.home_intro
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.capstone.healthscanapp.databinding.ActivitySplashBinding
 import com.capstone.healthscanapp.local.pref.PrefsManager
-import com.capstone.healthscanapp.ui.app.home.home_main.HomeActivity
+import com.capstone.healthscanapp.ui.app.ui.home_main.HomeActivity
 import com.capstone.healthscanapp.ui.app.login.LoginActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -33,7 +33,7 @@ class SplashActivity : AppCompatActivity() {
                     Intent(this@SplashActivity, HomeActivity::class.java)
                 }
                 prefsManager.isExampleLogin -> {
-                    Intent(this@SplashActivity, LoginActivity::class.java)
+                    Intent(this@SplashActivity, HomeActivity::class.java)
                 }
                 else -> {
                     Intent(this@SplashActivity, BacklogActivity::class.java)

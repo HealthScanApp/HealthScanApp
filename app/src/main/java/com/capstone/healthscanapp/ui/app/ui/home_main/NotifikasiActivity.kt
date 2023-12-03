@@ -1,9 +1,7 @@
-package com.capstone.healthscanapp.ui.app.home.home_main
+package com.capstone.healthscanapp.ui.app.ui.home_main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.capstone.healthscanapp.R
-import com.capstone.healthscanapp.databinding.ActivityHomeBinding
 import com.capstone.healthscanapp.databinding.ActivityNotifikasiBinding
 
 class NotifikasiActivity : AppCompatActivity() {

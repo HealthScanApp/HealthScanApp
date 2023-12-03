@@ -1,4 +1,4 @@
-package com.capstone.healthscanapp.ui.app.home.home_intro
+package com.capstone.healthscanapp.ui.app.ui.home_intro
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import android.widget.Button
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.ActivityBacklogBinding
 import com.capstone.healthscanapp.local.pref.PrefsManager
-import com.capstone.healthscanapp.ui.app.home.home_main.HomeActivity
+import com.capstone.healthscanapp.ui.app.ui.home_main.HomeActivity
 
 class BacklogActivity : AppCompatActivity() {
 

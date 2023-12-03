@@ -38,6 +38,10 @@ android {
         viewBinding = true
     }
 
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
+
 }
 
 dependencies {
@@ -75,6 +79,8 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.13.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    implementation ("com.jakewharton.timber:timber:5.0.1")
 
 
 }

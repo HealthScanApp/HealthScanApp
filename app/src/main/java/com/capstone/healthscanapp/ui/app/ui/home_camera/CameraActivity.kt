@@ -1,4 +1,4 @@
-package com.capstone.healthscanapp.ui.app.home.home_camera
+package com.capstone.healthscanapp.ui.app.ui.home_camera
 
 import android.Manifest
 import android.content.Intent
@@ -6,14 +6,13 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import com.capstone.healthscanapp.databinding.ActivityCameraBinding
-import com.capstone.healthscanapp.ui.app.home.home_camera.IntentCameraActivity.Companion.CAMERA_RESULT
+import com.capstone.healthscanapp.ui.app.ui.home_camera.IntentCameraActivity.Companion.CAMERA_RESULT
+import timber.log.Timber
 
 
 class CameraActivity : AppCompatActivity() {
@@ -80,30 +79,28 @@ class CameraActivity : AppCompatActivity() {
 
     private fun showImage() {
         currentImageUri?.let {
-            Log.d("Image URI", "showImage: $it")
+            Timber.tag("Image URI").d("showImage: %s", it)
             binding.imgPreview.setImageURI(it)
         }
     }
 
 
-    private fun startGallery() {
-        launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
-    }
-
-    private val launcherGallery = registerForActivityResult(
-        ActivityResultContracts.PickVisualMedia()
+    private val pickGallery = registerForActivityResult(
+        ActivityResultContracts.GetContent(),
     ) { uri: Uri? ->
         if (uri != null) {
             currentImageUri = uri
             showImage()
         } else {
-            Log.d("Photo Picker", "No media selected")
+            Timber.tag("Photo Picker").d("No media selected")
         }
     }
 
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    private fun startGallery() {
+        val imageMimeType = "image/*"
+        pickGallery.launch(imageMimeType)
     }
+
 
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA

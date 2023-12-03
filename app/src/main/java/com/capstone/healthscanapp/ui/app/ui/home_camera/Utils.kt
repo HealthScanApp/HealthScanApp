@@ -1,4 +1,4 @@
-package com.capstone.healthscanapp.ui.app.home.home_camera
+package com.capstone.healthscanapp.ui.app.ui.home_camera
 
 import android.content.ContentValues
 import android.content.Context

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.app.home.home_camera.CameraActivity">
+    tools:context=".ui.app.ui.home_camera.CameraActivity">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -37,6 +37,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:text="@string/upload_gambar"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />

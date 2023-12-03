@@ -47,6 +47,7 @@
                             android:textColor="@color/white"/>
 
                         <ImageView
+                            android:id="@+id/btn_akunsaya"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/icon_right"
@@ -60,10 +61,11 @@
             <View
                 android:background="@color/white"
                 android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginLeft="60dp"/>
+                android:layout_height="1dp"
+                android:layout_marginStart="60dp"/>
 
             <LinearLayout
+                android:id="@+id/notifikasi"
                 android:orientation="horizontal"
                 android:weightSum="2"
                 android:gravity="start"
@@ -77,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:src="@drawable/icon_notifikasi"
-                    android:id="@+id/notifikasi"
+                    android:id="@+id/notifikasi_"
                     app:tint="@color/white" />
 
 
@@ -97,6 +99,7 @@
                             android:textColor="@color/white" />
 
                         <ImageView
+                            android:id="@+id/btn_notifikasie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/icon_right"
@@ -116,6 +119,7 @@
 
 
             <LinearLayout
+                android:id="@+id/language"
                 android:orientation="horizontal"
                 android:weightSum="2"
                 android:gravity="start"
@@ -145,6 +149,7 @@
                             android:textColor="@color/white" />
 
                         <ImageView
+                            android:id="@+id/btn_cange_language"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/icon_right" />
@@ -157,11 +162,12 @@
             <View
                 android:background="@color/white"
                 android:layout_width="wrap_content"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_marginLeft="60dp"/>
 
 
             <LinearLayout
+                android:id="@+id/ketentuan_privasi"
                 android:orientation="horizontal"
                 android:weightSum="2"
                 android:gravity="start"
@@ -195,6 +201,7 @@
                             android:textColor="@color/white" />
 
                         <ImageView
+                            android:id="@+id/btn_ketentuanprivasi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/icon_right"
