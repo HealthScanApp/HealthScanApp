@@ -10,13 +10,13 @@
     tools:context=".ui.app.login.LoginActivity">
 
 
-<ImageView
-        android:layout_width="118dp"
-        android:layout_height="109dp"
+    <ImageView
+        android:layout_width="133dp"
+        android:layout_height="122dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/logo"
-        android:src="@drawable/person_24" />
+        android:src="@drawable/LogoApp" />
 
     <TextView
         android:layout_width="wrap_content"

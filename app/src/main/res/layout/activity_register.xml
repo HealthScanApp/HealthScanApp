@@ -9,12 +9,12 @@
     android:gravity="center_horizontal"
     tools:context=".ui.app.login.RegisterActivity">
 
-<ImageView
-        android:layout_width="109dp"
-        android:layout_height="94dp"
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="115dp"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/logo"
-        android:src="@drawable/person_24" />
+        android:src="@drawable/LogoApp" />
 
     <TextView
         android:layout_width="wrap_content"
