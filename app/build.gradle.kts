@@ -42,6 +42,10 @@ android {
         unitTests.isReturnDefaultValues = true
     }
 
+    buildFeatures {
+        mlModelBinding = true
+    }
+
 }
 
 dependencies {
@@ -81,6 +85,12 @@ dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
     implementation ("com.jakewharton.timber:timber:5.0.1")
+
+    implementation("org.tensorflow:tensorflow-lite-support:0.3.1")
+    implementation("org.tensorflow:tensorflow-lite-metadata:0.1.0")
+
+    implementation ("org.tensorflow:tensorflow-lite:2.7.0")
+    implementation ("org.tensorflow:tensorflow-lite-gpu:2.2.0")
 
 
 }
