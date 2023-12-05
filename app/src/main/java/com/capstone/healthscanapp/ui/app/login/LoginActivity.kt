@@ -25,6 +25,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.googleRegisterButton.setOnClickListener {
+            val intent = Intent(this@LoginActivity, SignGoogleActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.logInButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()

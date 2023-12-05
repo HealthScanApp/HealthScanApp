@@ -28,6 +28,7 @@
     <string name="notifikasi_informasi">Yahh..tidak ada notifikasi saat ini !</string>
     <string name="logo">Logo</string>
     <string name="poto_product">Poto_Product</string>
+    <string name="default_web_client_id">your_web_client_id_here</string>
 
 
 </resources>
