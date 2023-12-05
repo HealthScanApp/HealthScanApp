@@ -71,6 +71,8 @@
     <string name="hasil_normal">Berat badan normal.</string>
     <string name="hasil_indikasi">Berat badan berlebih (kecenderungan obesitas).</string>
     <string name="hasil_obesitas">Obesitas.</string>
+    <string name="desc_prediksi">Tekan tombol prediksi untuk megetahui komposisi makananmu!</string>
+    <string name="prediksi">Prediksi</string>
 
 
 </resources>
