@@ -37,8 +37,8 @@ class LoginActivity : AppCompatActivity() {
 
             if (email.isEmpty() || password.isEmpty()) {
                 // Handle empty fields
-                binding.emailEditText.error = "Please fill all the fields"
-                binding.passwordEditText.error = "Please fill all the fields"
+                binding.emailEditText.error = "Jangan Kosong"
+                binding.passwordEditText.error = "Jangan Kosong"
             } else {
                 // Sign in user with email and password
                 firebaseAuth.signInWithEmailAndPassword(email, password)
@@ -53,13 +53,13 @@ class LoginActivity : AppCompatActivity() {
                                 finish()
                             } else {
                                 // If email is not verified, display a message
-                                Toast.makeText(baseContext, "Please verify your email before logging in.",
+                                Toast.makeText(baseContext, "Tolong verifikasi email anda, sebelum login",
                                     Toast.LENGTH_SHORT).show()
                             }
                         } else {
                             // If sign-in fails, display a message to the user.
-                            binding.emailEditText.error = "Invalid email or password"
-                            binding.passwordEditText.error = "Invalid email or password"
+                            binding.emailEditText.error = "Email salah"
+                            binding.passwordEditText.error = "Password salah"
                         }
                     }
             }

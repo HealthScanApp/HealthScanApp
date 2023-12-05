@@ -36,11 +36,11 @@ class RegisterActivity : AppCompatActivity() {
 
             if (email.isEmpty() || password.isEmpty()) {
                 // Handle empty fields
-                binding.emailEditText.error = "Please fill all the fields"
-                binding.passwordEditText.error = "Please fill all the fields"
+                binding.emailEditText.error = "Jangan Kosong"
+                binding.passwordEditText.error = "Jangan Kosong"
             } else if (password.length < 6) {
                 // Handle weak password
-                binding.passwordEditText.error = "Password should be at least 6 characters"
+                binding.passwordEditText.error = "Password harus lebih dari 6 karakter"
             } else {
                 // Create user with email and password
                 firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -67,7 +67,7 @@ class RegisterActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Verification email sent successfully
                     Toast.makeText(
-                        baseContext, "Verification email sent. Please check your email.",
+                        baseContext, "Verifikasi email telah dikirim ke ${user.email}",
                         Toast.LENGTH_SHORT
                     ).show()
 
@@ -78,7 +78,7 @@ class RegisterActivity : AppCompatActivity() {
                 } else {
                     // If sending email verification fails, display a message to the user.
                     Toast.makeText(
-                        baseContext, "Failed to send verification email.",
+                        baseContext, "Gagal mengirim verifikasi email. Silakan coba lagi.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
