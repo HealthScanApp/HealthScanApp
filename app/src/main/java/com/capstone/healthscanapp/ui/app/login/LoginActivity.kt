@@ -7,11 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.capstone.healthscanapp.databinding.ActivityLoginBinding
 import com.capstone.healthscanapp.ui.app.home.home_main.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
         binding.registerPromptTextView.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
@@ -36,7 +39,6 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passwordEditText.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
-                // Handle empty fields
                 binding.emailEditText.error = "Jangan Kosong"
                 binding.passwordEditText.error = "Jangan Kosong"
             } else {
@@ -44,20 +46,30 @@ class LoginActivity : AppCompatActivity() {
                 firebaseAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            // Check if the user's email is verified
                             val user = firebaseAuth.currentUser
                             if (user != null && user.isEmailVerified) {
-                                // If email is verified, proceed to home activity
-                                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                                startActivity(intent)
-                                finish()
+
+                                // Fetch additional user data from Firestore
+                                firestore.collection("users")
+                                    .document(user.uid)
+                                    .get()
+                                    .addOnSuccessListener { document ->
+                                        // Get user data and proceed to home activity
+                                        val userData = document.data
+                                        // Do something with userData if needed
+                                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                                        startActivity(intent)
+                                        finish()
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Toast.makeText(baseContext, "Error fetching user data: $e",
+                                            Toast.LENGTH_SHORT).show()
+                                    }
                             } else {
-                                // If email is not verified, display a message
                                 Toast.makeText(baseContext, "Tolong verifikasi email anda, sebelum login",
                                     Toast.LENGTH_SHORT).show()
                             }
                         } else {
-                            // If sign-in fails, display a message to the user.
                             binding.emailEditText.error = "Email salah"
                             binding.passwordEditText.error = "Password salah"
                         }
@@ -66,5 +78,3 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
-
-
