@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center_horizontal"
-    tools:context=".ui.app.login.LoginActivity">
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal"
+        tools:context=".ui.app.login.LoginActivity">
 
 
     <ImageView
@@ -26,7 +30,8 @@
         android:text="Sign In"
         android:textAlignment="center"
         android:textSize="34sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +41,8 @@
         android:layout_marginBottom="24dp"
         android:text="Welcome Back! Sign in with your email and password or continue with social media"
         android:textAlignment="viewStart"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/emailEditText"
@@ -113,3 +119,4 @@
         android:layout_marginBottom="16dp"/>
 
 </LinearLayout>
+</ScrollView>
