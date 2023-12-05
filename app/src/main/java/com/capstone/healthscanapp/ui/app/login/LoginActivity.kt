@@ -2,6 +2,7 @@ package com.capstone.healthscanapp.ui.app.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.healthscanapp.databinding.ActivityLoginBinding
 import com.capstone.healthscanapp.ui.app.home.home_main.HomeActivity
@@ -35,20 +36,28 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passwordEditText.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
+                // Handle empty fields
                 binding.emailEditText.error = "Please fill all the fields"
                 binding.passwordEditText.error = "Please fill all the fields"
             } else {
+                // Sign in user with email and password
                 firebaseAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
+                            // Check if the user's email is verified
                             val user = firebaseAuth.currentUser
-                            if (user != null) {
+                            if (user != null && user.isEmailVerified) {
+                                // If email is verified, proceed to home activity
                                 val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                                 startActivity(intent)
                                 finish()
+                            } else {
+                                // If email is not verified, display a message
+                                Toast.makeText(baseContext, "Please verify your email before logging in.",
+                                    Toast.LENGTH_SHORT).show()
                             }
                         } else {
-                            // If sign in fails, display a message to the user.
+                            // If sign-in fails, display a message to the user.
                             binding.emailEditText.error = "Invalid email or password"
                             binding.passwordEditText.error = "Invalid email or password"
                         }

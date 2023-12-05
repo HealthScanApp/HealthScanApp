@@ -10,7 +10,6 @@ import com.google.firebase.auth.FirebaseAuth
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
-
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,36 +35,53 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.passwordEditText.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
+                // Handle empty fields
                 binding.emailEditText.error = "Please fill all the fields"
                 binding.passwordEditText.error = "Please fill all the fields"
             } else if (password.length < 6) {
-                binding.passwordEditText.error = "Password does not match"
+                // Handle weak password
+                binding.passwordEditText.error = "Password should be at least 6 characters"
             } else {
+                // Create user with email and password
                 firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            val user = firebaseAuth.currentUser
-                            user?.sendEmailVerification()
-                                ?.addOnCompleteListener { task ->
-                                    if (task.isSuccessful) {
-                                        // Sign in success, update UI with the signed-in user's information
-                                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                                        startActivity(intent)
-                                        finish()
-                                    } else {
-                                        // If sign in fails, display a message to the user.
-                                        Toast.makeText(baseContext, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show()
-                                    }
-                                }
+                            // Send email verification
+                            sendEmailVerification()
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(baseContext, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show()
+                            // If sign-up fails, display a message to the user.
+                            Toast.makeText(
+                                baseContext, "Authentication failed: ${task.exception?.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
             }
         }
+    }
 
+    private fun sendEmailVerification() {
+        val user = firebaseAuth.currentUser
+        user?.sendEmailVerification()
+            ?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Verification email sent successfully
+                    Toast.makeText(
+                        baseContext, "Verification email sent. Please check your email.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    // Redirect to login screen
+                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    // If sending email verification fails, display a message to the user.
+                    Toast.makeText(
+                        baseContext, "Failed to send verification email.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
     }
 }
