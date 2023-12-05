@@ -36,6 +36,18 @@
         android:textAlignment="viewStart"
         android:textSize="24sp" />
 
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your Name"
+        android:drawableStart="@drawable/person_24"
+        android:drawablePadding="16dp"
+        android:inputType="textPersonName"
+        android:background="@drawable/rounded_button"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"
+        />
 
     <EditText
         android:id="@+id/emailEditText"
@@ -45,19 +57,6 @@
         android:drawableStart="@drawable/email_24"
         android:drawablePadding="16dp"
         android:inputType="textEmailAddress"
-        android:background="@drawable/rounded_button"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        />
-
-    <EditText
-        android:id="@+id/nameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Your Name"
-        android:drawableStart="@drawable/person_24"
-        android:drawablePadding="16dp"
-        android:inputType="textPersonName"
         android:background="@drawable/rounded_button"
         android:padding="12dp"
         android:layout_marginTop="8dp"
