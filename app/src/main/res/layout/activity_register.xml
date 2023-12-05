@@ -14,7 +14,7 @@
         android:layout_height="115dp"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/logo"
-        android:src="@drawable/LogoApp" />
+        android:src="@drawable/logoApp" />
 
     <TextView
         android:layout_width="wrap_content"
