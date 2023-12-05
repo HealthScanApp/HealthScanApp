@@ -14,7 +14,7 @@
         android:layout_height="115dp"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/logo"
-        android:src="@drawable/logoApp" />
+        android:src="@drawable/logo_app" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +24,8 @@
         android:text="Sign Up"
         android:textAlignment="center"
         android:textSize="34sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,9 +33,10 @@
         android:layout_gravity="left"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
-        android:text="create an account to access all the features of MND"
+        android:text="create an account to access all features"
         android:textAlignment="viewStart"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/nameEditText"

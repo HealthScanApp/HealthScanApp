@@ -12,7 +12,7 @@
         android:layout_height="184dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/logo"
-        android:src="@drawable/LogoApp"
+        android:src="@drawable/logo_app"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
