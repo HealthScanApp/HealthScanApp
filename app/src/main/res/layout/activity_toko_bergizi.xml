@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.app.home.home_menu.TokoBergiziActivity">
+    tools:context=".ui.app.ui.home_menu.TokoBergiziActivity">
 
 <!-- Toolbar or title area -->
     <TextView

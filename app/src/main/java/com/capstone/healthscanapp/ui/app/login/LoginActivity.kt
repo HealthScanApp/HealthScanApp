@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.healthscanapp.databinding.ActivityLoginBinding
-import com.capstone.healthscanapp.ui.app.home.home_main.HomeActivity
+import com.capstone.healthscanapp.ui.app.ui.home_main.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
