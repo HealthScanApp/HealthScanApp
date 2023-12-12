@@ -13,114 +13,114 @@
         android:gravity="center_horizontal"
         tools:context=".ui.app.login.RegisterActivity">
 
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="115dp"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="@string/logo"
-        android:src="@drawable/logo_app" />
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="115dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/logo_app" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="24dp"
-        android:text="Sign Up"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        tools:ignore="RtlCompat" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="24dp"
+            android:text="Sign Up"
+            android:textAlignment="center"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
-        android:text="create an account to access all features"
-        android:textAlignment="viewStart"
-        android:textSize="24sp"
-        tools:ignore="RtlCompat" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="create an account to access all features"
+            android:textAlignment="viewStart"
+            android:textSize="24sp"
+            tools:ignore="RtlCompat" />
 
-    <EditText
-        android:id="@+id/nameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Your Name"
-        android:drawableStart="@drawable/person_24"
-        android:drawablePadding="16dp"
-        android:inputType="textPersonName"
-        android:background="@drawable/rounded_button"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        />
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Name"
+            android:drawableStart="@drawable/person_24"
+            android:drawablePadding="16dp"
+            android:inputType="textPersonName"
+            android:background="@drawable/rounded_button"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            />
 
-    <EditText
-        android:id="@+id/emailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:drawableStart="@drawable/email_24"
-        android:drawablePadding="16dp"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/rounded_button"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        />
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:drawableStart="@drawable/email_24"
+            android:drawablePadding="16dp"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/rounded_button"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            />
 
-    <EditText
-        android:id="@+id/passwordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Your Password"
-        android:drawableStart="@drawable/lock_24"
-        android:drawablePadding="16dp"
-        android:inputType="textPassword"
-        android:background="@drawable/rounded_button"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        />
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Password"
+            android:drawableStart="@drawable/lock_24"
+            android:drawablePadding="16dp"
+            android:inputType="textPassword"
+            android:background="@drawable/rounded_button"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            />
 
-    <Button
-        android:id="@+id/RegisterButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_biru"
-        android:text="Sign Up"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/white" />
+        <Button
+            android:id="@+id/RegisterButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_biru"
+            android:text="Sign Up"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Or"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Or"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/googleRegisterButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_button"
-        android:drawableStart="@drawable/google"
-        android:drawablePadding="8dp"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="Sign up with Google"
-        android:textAlignment="center"
-        android:textColor="#757575" />
+        <Button
+            android:id="@+id/googleRegisterButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:drawableStart="@drawable/google"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Sign up with Google"
+            android:textAlignment="center"
+            android:textColor="#757575" />
 
-    <TextView
-        android:id="@+id/alreadyHaveAccountTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Already have an account? Login"
-        android:textColor="#0000FF"
-        android:layout_marginTop="24dp"
-        android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:id="@+id/alreadyHaveAccountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account? Login"
+            android:textColor="#0000FF"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center_horizontal"/>
 
-</LinearLayout>
+    </LinearLayout>
 </ScrollView>

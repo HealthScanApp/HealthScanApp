@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.ActivityRegisterBinding
-import com.capstone.healthscanapp.ui.app.home.home_main.HomeActivity
+import com.capstone.healthscanapp.ui.app.ui.home_main.HomeActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
