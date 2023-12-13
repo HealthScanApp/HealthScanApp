@@ -2,6 +2,7 @@ package com.capstone.healthscanapp.ui.app.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.healthscanapp.databinding.ActivityLoginBinding
@@ -15,6 +16,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
 
+    private var isPasswordVisible = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,6 +26,13 @@ class LoginActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
+
+        // Set a click listener for the eye icon
+        binding.eyeIcon.setOnClickListener {
+            // Toggle the visibility of the password field
+            isPasswordVisible = !isPasswordVisible
+            togglePasswordVisibility()
+        }
 
         binding.registerPromptTextView.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
@@ -75,6 +85,15 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
             }
+        }
+    }
+    private fun togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            // If the password is visible, hide it
+            binding.passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
+        } else {
+            // If the password is hidden, show it
+            binding.passwordEditText.transformationMethod = null
         }
     }
 }
