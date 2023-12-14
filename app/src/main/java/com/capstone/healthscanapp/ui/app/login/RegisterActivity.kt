@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.ActivityRegisterBinding
+import com.capstone.healthscanapp.ui.app.custome_view.EyeIconView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -14,6 +16,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var eyeIcon: EyeIconView
 
     private var isPasswordVisible = false
 
@@ -26,8 +29,11 @@ class RegisterActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        // Set a click listener for the eye icon
-        binding.eyeIcon.setOnClickListener {
+        // Initialize eyeIcon
+        eyeIcon = findViewById(R.id.eyeIcon)
+        eyeIcon.setEncryptedTransformation(PasswordTransformationMethod.getInstance())
+
+        eyeIcon.setOnClickListener {
             // Toggle the visibility of the password field
             isPasswordVisible = !isPasswordVisible
             togglePasswordVisibility()
@@ -91,16 +97,6 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun togglePasswordVisibility() {
-        if (isPasswordVisible) {
-            // If the password is visible, hide it
-            binding.passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
-        } else {
-            // If the password is hidden, show it
-            binding.passwordEditText.transformationMethod = null
-        }
-    }
-
     private fun sendEmailVerification() {
         val user = firebaseAuth.currentUser
         user?.sendEmailVerification()
@@ -124,5 +120,25 @@ class RegisterActivity : AppCompatActivity() {
                     ).show()
                 }
             }
+    }
+
+    private fun togglePasswordVisibility() {
+        // Toggle the visibility of the password field
+        isPasswordVisible = !isPasswordVisible
+
+        // Update the appropriate transformation for the password field
+        val transformation = eyeIcon.getPasswordTransformation()
+
+        // Set the appropriate transformation for the password field
+        binding.passwordEditText.transformationMethod = transformation
+
+        // Toggle the eye state
+        eyeIcon.toggleEyeState()
+
+        // Update the eye icon
+        eyeIcon.updateEyeIcon()
+
+        // Clear focus to ensure the transformation is applied immediately
+        binding.passwordEditText.clearFocus()
     }
 }
