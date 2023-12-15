@@ -15,4 +15,7 @@
     <color name="gradient_start">#1976D2</color>
     <color name="gradient_end">#2196F3</color>
     <color name="custom_text_color">#0000FF</color>
+    <color name="biru_sky">#38B0DE</color>
+    <color name="gradient_merah_start">#FF0000</color>
+    <color name="gradient_merah_end">#FF4500</color>
 </resources>
