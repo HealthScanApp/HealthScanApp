@@ -63,6 +63,9 @@
             android:name=".ui.app.ui.home_menu.CartActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.app.ui.home_menu.ProductDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.app.ui.home_main.HomeActivity"
             android:exported="false" />
         <activity
