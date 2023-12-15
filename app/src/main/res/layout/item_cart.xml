@@ -1,19 +1,39 @@
-<!-- res/layout/item_cart.xml -->
+<!-- item_cart.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/itemNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Item Name"/>
+    <!-- Product Image -->
+    <ImageView
+        android:id="@+id/itemImageView"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/ic_launcher_foreground"
+    android:contentDescription="@string/poto_product" />
 
-    <TextView
-        android:id="@+id/itemPriceTextView"
-        android:layout_width="wrap_content"
+    <!-- Product Details -->
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Item Price"/>
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp">
+
+        <TextView
+            android:id="@+id/itemNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item Name"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/itemPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item Price"
+            android:textStyle="bold" />
+    </LinearLayout>
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.capstone.healthscanapp.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.healthscanapp.R
@@ -30,10 +31,12 @@ class CartItemAdapter(private val cartItems: List<CartItem>) :
     class CartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val itemNameTextView: TextView = itemView.findViewById(R.id.itemNameTextView)
         private val itemPriceTextView: TextView = itemView.findViewById(R.id.itemPriceTextView)
+        private val itemImageView: ImageView = itemView.findViewById(R.id.itemImageView)
 
         fun bind(cartItem: CartItem) {
             itemNameTextView.text = cartItem.name
             itemPriceTextView.text = cartItem.price
+            itemImageView.setImageResource(cartItem.imageResId)
         }
     }
 }

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,40 +20,71 @@ import com.capstone.healthscanapp.data.CartItem
 
 class TokoBergiziActivity : AppCompatActivity() {
 
+    private lateinit var productsRecyclerView: RecyclerView
+    private lateinit var searchView: androidx.appcompat.widget.SearchView
+    private lateinit var adapter: ProductAdapter
+
+    private val allProducts = createDummyProductList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_toko_bergizi)
 
-        val productsRecyclerView: RecyclerView = findViewById(R.id.productsRecyclerView)
-        val layoutManager = GridLayoutManager(this, 2) // Adjust the spanCount as needed
+        productsRecyclerView = findViewById(R.id.productsRecyclerView)
+        searchView = findViewById(R.id.searchView)
+
+        val layoutManager = GridLayoutManager(this, 2)
         productsRecyclerView.layoutManager = layoutManager
 
-        val products = createDummyProductList() // Replace with your actual product data
-
-        val adapter = ProductAdapter(products)
+        adapter = ProductAdapter(allProducts)
         productsRecyclerView.adapter = adapter
 
-        // Setup the cart ImageView click listener
         val cartImageView: ImageView = findViewById(R.id.cartImageView)
         cartImageView.setOnClickListener {
-            // Start the CartActivity when the cart icon is clicked
             val intent = Intent(this, CartActivity::class.java)
             startActivity(intent)
         }
 
+        setupSearchView()
+    }
+
+    private fun setupSearchView() {
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterProducts(newText)
+                return true
+            }
+        })
+    }
+
+    private fun filterProducts(query: String?) {
+        if (query.isNullOrBlank()) {
+            adapter.updateData(allProducts)
+        } else {
+            val filteredProducts = allProducts.filter {
+                it.name.contains(query, ignoreCase = true)
+            }
+            adapter.updateData(filteredProducts)
+        }
     }
 
     private fun createDummyProductList(): List<Product> {
-        // Replace this with your actual product data
         return listOf(
             Product("Roti", "Rp 100,000", R.drawable.roti),
+            Product("Sayur", "Rp 200,000", R.drawable.sayur),
+            Product("Obat", "Rp 300,000", R.drawable.obat),
+            Product("Madu", "Rp 400,000", R.drawable.madu),
             // Add more products as needed
         )
     }
 
     data class Product(val name: String, val price: String, val imageResId: Int)
 
-    inner class ProductAdapter(private val productList: List<Product>) :
+    inner class ProductAdapter(private var productList: List<Product>) :
         RecyclerView.Adapter<ProductViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -69,8 +101,12 @@ class TokoBergiziActivity : AppCompatActivity() {
         override fun getItemCount(): Int {
             return productList.size
         }
-    }
 
+        fun updateData(newList: List<Product>) {
+            productList = newList
+            notifyDataSetChanged()
+        }
+    }
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val productImageView: ImageView = itemView.findViewById(R.id.productImageView)
         private val productNameTextView: TextView = itemView.findViewById(R.id.productNameTextView)
@@ -84,22 +120,17 @@ class TokoBergiziActivity : AppCompatActivity() {
             productPriceTextView.text = product.price
 
             buyButton.setOnClickListener {
-                // Here you add the product to your cart (you'll need to implement this logic)
+                // Add the product to the cart
                 addToCart(product)
 
-                // Then navigate to CartActivity
-                val intent = Intent(this@TokoBergiziActivity, CartActivity::class.java)
-                startActivity(intent)
+                // Notify the user
+                Toast.makeText(itemView.context, "Added to cart!", Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Dummy function to illustrate adding to cart
         private fun addToCart(product: Product) {
-            val cartItem = CartItem(product.name, product.price)
+            val cartItem = CartItem(product.name, product.price, product.imageResId)
             CartManager.addToCart(cartItem)
-
-            // Optionally show a message to the user
-            Toast.makeText(itemView.context, "Added to cart!", Toast.LENGTH_SHORT).show()
         }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

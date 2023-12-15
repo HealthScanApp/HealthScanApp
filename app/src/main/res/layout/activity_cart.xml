@@ -21,12 +21,4 @@
         android:visibility="gone"
         android:layout_marginBottom="16dp"/>
 
-    <!-- TextView to show when the cart is empty -->
-    <TextView
-        android:id="@+id/cartEmptyTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Your cart is empty"/>
-
 </RelativeLayout>

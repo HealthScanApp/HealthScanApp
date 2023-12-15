@@ -21,7 +21,6 @@ class CartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cart)
 
         cartItemsRecyclerView = findViewById(R.id.cartItemsRecyclerView)
-        cartEmptyTextView = findViewById(R.id.cartEmptyTextView)
         checkoutButton = findViewById(R.id.checkoutButton)
 
         val cartItems = CartManager.getCartItems()
@@ -42,4 +41,5 @@ class CartActivity : AppCompatActivity() {
         // TODO: Implement your logic to retrieve cart items
         return emptyList()
     }
+
 }
