@@ -1,5 +1,4 @@
 package com.capstone.healthscanapp.ui.app.ui.home_camera
-
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -16,9 +15,7 @@ import com.capstone.healthscanapp.databinding.ActivityCameraBinding
 import com.capstone.healthscanapp.ml.FcModel
 import com.capstone.healthscanapp.ui.app.ui.home_camera.IntentCameraActivity.Companion.CAMERA_RESULT
 import org.tensorflow.lite.DataType
-import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
-import org.tensorflow.lite.support.image.ops.ResizeOp
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import timber.log.Timber
 import java.io.IOException
@@ -124,12 +121,17 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun showImage() {
-        currentImageUri?.let {
-            Timber.tag("Image URI").d("showImage: %s", it)
-           // binding.imgPreview.setImageURI(it)
-            binding.imgPreview.setImageBitmap(bitmap)
+        currentImageUri?.let { uri ->
+            Timber.tag("Image URI").d("showImage: %s", uri)
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
+                binding.imgPreview.setImageBitmap(bitmap)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
         }
     }
+
 
 
     private fun startGallery() {
@@ -149,6 +151,7 @@ class CameraActivity : AppCompatActivity() {
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, it)
                     binding.imgPreview.setImageBitmap(bitmap)
+                    currentImageUri = it // Update currentImageUri with the selected image URI
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
@@ -156,8 +159,8 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
+
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
     }
 }
-

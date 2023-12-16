@@ -12,7 +12,28 @@
           "package_name": "com.capstone.healthscanapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "379282003793-9c108eg10ifnlkrre3ec40rgq6leedvb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.capstone.healthscanapp",
+            "certificate_hash": "7caf24747fea2991885f13854111bf59836a0469"
+          }
+        },
+        {
+          "client_id": "379282003793-f0lii7tdrhg6pnjqrctk6g64hjuvk8tj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.capstone.healthscanapp",
+            "certificate_hash": "637370c1f47483f76be3cb5f5af5f745fb9648c1"
+          }
+        },
+        {
+          "client_id": "379282003793-mbc5mbfdh1j84der1tkffvrscts694cp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDiTHcgnrKw-ZwhL1Bovw1EXkhUIzwp0cA"
@@ -20,7 +41,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379282003793-mbc5mbfdh1j84der1tkffvrscts694cp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -1,5 +1,4 @@
 package com.capstone.healthscanapp.ui.app.custome_view
-
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
