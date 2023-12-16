@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="CustomAttributes">
+        <attr name="showCaption" format="boolean" />
+        <attr name="autoPlay" format="boolean" />
+        <attr name="showNavigationButtons" format="boolean" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,4 @@
+<!-- res/values/dimens.xml -->
+<resources>
+    <dimen name="button_corner_radius">30dp</dimen>
+</resources>

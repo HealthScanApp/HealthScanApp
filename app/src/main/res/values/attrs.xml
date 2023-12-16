@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="ButtonBeliView">
+        <attr name="customText" format="string" />
+    </declare-styleable>
+</resources>

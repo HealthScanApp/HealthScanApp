@@ -164,3 +164,4 @@ class CameraActivity : AppCompatActivity() {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
     }
 }
+

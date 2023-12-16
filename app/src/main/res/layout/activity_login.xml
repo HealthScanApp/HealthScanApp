@@ -1,115 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center_horizontal"
-    tools:context=".ui.app.login.LoginActivity">
+    android:layout_height="match_parent">
 
-
-<ImageView
-        android:layout_width="118dp"
-        android:layout_height="109dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="@string/logo"
-        android:src="@drawable/person_24" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="24dp"
-        android:text="Sign In"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
-        android:text="Welcome Back! Sign in with your email and password or continue with social media"
-        android:textAlignment="viewStart"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/emailEditText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        android:drawableStart="@drawable/email_24"
-        android:drawablePadding="16dp"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/rounded_button"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        />
-
-    <EditText
-        android:id="@+id/passwordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Your Password"
-        android:drawableStart="@drawable/lock_24"
-        android:drawablePadding="16dp"
-        android:inputType="textPassword"
-        android:background="@drawable/rounded_button"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        />
-
-    <TextView
-        android:id="@+id/forgotPasswordTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="24dp"/>
-
-    <Button
-        android:id="@+id/logInButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_biru"
-        android:text="Log In"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/white" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Or"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/googleRegisterButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_button"
-        android:drawableStart="@drawable/google"
-        android:drawablePadding="8dp"
-        android:gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         android:padding="16dp"
-        android:text="Sign up with Google"
-        android:textAlignment="center"
-        android:textColor="#757575" />
+        tools:context=".ui.app.login.LoginActivity">
 
-    <TextView
-        android:id="@+id/registerPromptTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign Up"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
 
-</LinearLayout>
+        <ImageView
+            android:layout_width="133dp"
+            android:layout_height="122dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/logo_app" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="24dp"
+            android:text="Sign In"
+            android:textAlignment="center"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="Welcome Back! Sign in with your email and password or continue with social media"
+            android:textAlignment="viewStart"
+            android:textSize="20sp"
+            tools:ignore="RtlCompat" />
+
+        <com.capstone.healthscanapp.ui.app.custome_view.EmailEditTextView
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_button"
+            android:padding="12dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end">
+
+                <com.capstone.healthscanapp.ui.app.custome_view.PasswordEditTextView
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/rounded_button"
+                    android:padding="12dp" />
+
+                <com.capstone.healthscanapp.ui.app.custome_view.EyeIconView
+                    android:id="@+id/eyeIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:clickable="true"
+                    android:paddingEnd="8dp" />
+
+            </FrameLayout>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/forgotPasswordTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:text="Forgot Password?" />
+
+        <com.capstone.healthscanapp.ui.app.custome_view.ButtonLoginView
+            android:id="@+id/logInButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Log In" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Or"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/googleRegisterButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:drawableStart="@drawable/google"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Login with Google"
+            android:textAlignment="center"
+            android:textColor="#757575" />
+
+        <com.capstone.healthscanapp.ui.app.custome_view.DontHaveTextView
+            android:id="@+id/registerPromptTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Don't have an account? Sign Up" />
+
+    </LinearLayout>
+</ScrollView>
