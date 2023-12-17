@@ -27,6 +27,11 @@ class ProductDetailActivity : AppCompatActivity() {
         otherDetailTextView.text = productName?.let { getOtherDetailText(it) }
 
         // Set other details as needed
+
+        val backButton: ImageView = findViewById(R.id.icon_back)
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun getOtherDetailText(productName: String): String {

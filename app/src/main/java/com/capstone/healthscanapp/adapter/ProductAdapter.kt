@@ -10,14 +10,16 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.data.CartItem
+import com.capstone.healthscanapp.data.CartManager
+import com.capstone.healthscanapp.data.Product
 import com.capstone.healthscanapp.ui.app.ui.home_menu.TokoBergiziActivity
 
 interface OnItemClickListener {
-    fun onItemClick(product: TokoBergiziActivity.Product)
+    fun onItemClick(product: Product)
 }
 
 class ProductAdapter(
-    private var productList: List<TokoBergiziActivity.Product>,
+    private var productList: List<Product>,
     private val itemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
@@ -37,7 +39,7 @@ class ProductAdapter(
         return productList.size
     }
 
-    fun updateData(newList: List<TokoBergiziActivity.Product>) {
+    fun updateData(newList: List<Product>) {
         productList = newList
         notifyDataSetChanged()
     }
@@ -50,7 +52,7 @@ class ProductAdapter(
             itemView.findViewById(R.id.productPriceTextView)
         private val buyButton: Button = itemView.findViewById(R.id.buyButton)
 
-        fun bind(product: TokoBergiziActivity.Product) {
+        fun bind(product: Product) {
             productImageView.setImageResource(product.imageResId)
             productNameTextView.text = product.name
             productPriceTextView.text = product.price
@@ -64,10 +66,22 @@ class ProductAdapter(
             }
         }
 
-        private fun addToCart(product: TokoBergiziActivity.Product) {
-            val cartItem = CartItem(product.name, product.price, product.imageResId)
-            // Assuming you have a CartManager somewhere to handle cart operations
-            CartManager.addToCart(cartItem)
+        private fun addToCart(product: Product) {
+            val existingCartItem = CartManager.getCartItem(product.name)
+
+            val priceAsDouble =
+                product.price.replace("Rp ", "").replace(",", "").toDoubleOrNull() ?: 0.0
+
+            if (existingCartItem != null) {
+                existingCartItem.quantity++
+            } else {
+                val cartItem = CartItem(product.name, priceAsDouble, product.imageResId, 1.0)
+                CartManager.addToCart(cartItem)
+            }
+
+            // Notify the CartActivity to update the UI
+            itemClickListener.onItemClick(product)
         }
+
     }
 }

@@ -2,13 +2,13 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="30dp"
+    android:layout_marginStart="20dp"
     android:padding="10dp"
     android:background="@drawable/rounded_outline">
 
     <LinearLayout
         android:layout_width="120dp"
-        android:layout_height="195dp"
+        android:layout_height="200dp"
         android:gravity="center"
         android:background="@drawable/product_bg"
         android:orientation="vertical"
@@ -40,11 +40,13 @@
             android:text="Rp 100,000"
             android:textStyle="bold" />
 
-        <com.capstone.healthscanapp.ui.app.custome_view.ButtonBeliView
+        <com.capstone.healthscanapp.ui.app.custome_view.ButtonAddtoCart
             android:id="@+id/buyButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Add to Cart" />
+            android:minHeight="48dp"
+            android:text="Add to Cart"
+            android:textSize="10sp" />
     </LinearLayout>
 </FrameLayout>

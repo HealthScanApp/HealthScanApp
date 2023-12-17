@@ -7,7 +7,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import com.capstone.healthscanapp.R
 
-class ButtonBeliView : AppCompatButton {
+class ButtonAddtoCart : AppCompatButton {
     constructor(context: Context) : super(context) {
         init()
     }

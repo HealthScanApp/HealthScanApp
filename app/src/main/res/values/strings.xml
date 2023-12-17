@@ -83,8 +83,10 @@
     <string name="error_password">Password must be at least 8 characters long!</string>
     <string name="belum_punya_akun">Don\'t have an account?</string>
     <string name="cart">Cart</string>
-        <string name="logo">Logo</string>
-        <string name="poto_product">Poto_Product</string>
-        <string name="default_web_client_id">your_web_client_id_here</string>
+    <string name="logo">Logo</string>
+    <string name="poto_product">Poto_Product</string>
+    <string name="default_web_client_id">your_web_client_id_here</string>
+    <string name="Keranjang">Keranjang Belanja</string>
+    <string name="Detail_Product">Detail Product</string>
 
 </resources>

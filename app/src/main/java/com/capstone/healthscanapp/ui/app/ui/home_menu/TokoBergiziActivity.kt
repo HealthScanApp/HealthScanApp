@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.adapter.OnItemClickListener
 import com.capstone.healthscanapp.adapter.ProductAdapter
+import com.capstone.healthscanapp.data.Product
 
 class TokoBergiziActivity : AppCompatActivity(), OnItemClickListener {
 
@@ -23,6 +24,9 @@ class TokoBergiziActivity : AppCompatActivity(), OnItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_toko_bergizi)
+
+        // Enable the Up button
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         productsRecyclerView = findViewById(R.id.productsRecyclerView)
         searchView = findViewById(R.id.searchView)
@@ -40,6 +44,11 @@ class TokoBergiziActivity : AppCompatActivity(), OnItemClickListener {
         }
 
         setupSearchView()
+
+        val backButton: ImageView = findViewById(R.id.icon_back)
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun setupSearchView() {
@@ -77,8 +86,6 @@ class TokoBergiziActivity : AppCompatActivity(), OnItemClickListener {
         )
     }
 
-    data class Product(val name: String, val price: String, val imageResId: Int)
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.botton_menu, menu)
         return true
@@ -86,6 +93,10 @@ class TokoBergiziActivity : AppCompatActivity(), OnItemClickListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
             R.id.cart -> {
                 val intent = Intent(this, CartActivity::class.java)
                 startActivity(intent)

@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.data.CartItem
 
-class CartItemAdapter(private val cartItems: List<CartItem>) :
+class CartItemAdapter(
+    private val cartItems: List<CartItem>,
+    private val itemClickListener: OnItemClickListener
+) :
     RecyclerView.Adapter<CartItemAdapter.CartItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartItemViewHolder {
@@ -35,8 +38,9 @@ class CartItemAdapter(private val cartItems: List<CartItem>) :
 
         fun bind(cartItem: CartItem) {
             itemNameTextView.text = cartItem.name
-            itemPriceTextView.text = cartItem.price
+            itemPriceTextView.text = cartItem.price.toString()
             itemImageView.setImageResource(cartItem.imageResId)
         }
     }
+
 }
