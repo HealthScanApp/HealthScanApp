@@ -296,7 +296,7 @@
             android:id="@+id/carouselCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             app:cardCornerRadius="40dp"
@@ -306,7 +306,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/carouselViewPager"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="240dp"
                 app:autoPlay="true"
                 app:showCaption="false"
                 app:showNavigationButtons="false" />

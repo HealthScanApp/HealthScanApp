@@ -1,0 +1,28 @@
+<!-- res/layout/popup_message_layout.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="230dp"
+    android:layout_height="120dp"
+    android:layout_gravity="center"
+    android:background="@drawable/popup_background"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/popupMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Popup Message Text"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/popupMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/product_bg"
+        android:text="Close"
+        android:textSize="12sp" />
+</RelativeLayout>

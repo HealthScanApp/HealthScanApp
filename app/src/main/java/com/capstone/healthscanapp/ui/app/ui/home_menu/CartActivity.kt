@@ -112,9 +112,6 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
         return totalPrice
     }
 
-
-
-
     private fun checkoutViaWhatsApp(cartItems: List<CartItem>) {
         // Prepare the message with the required information
         val message = buildWhatsAppMessage(cartItems)

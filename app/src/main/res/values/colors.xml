@@ -18,4 +18,5 @@
     <color name="biru_sky">#38B0DE</color>
     <color name="gradient_merah_start">#FF0000</color>
     <color name="gradient_merah_end">#FF4500</color>
+    <color name="red_soft">#E91E63</color>
 </resources>
