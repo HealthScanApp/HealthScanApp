@@ -99,14 +99,39 @@ class HomeFragment : Fragment() {
         val currentUser = firebaseAuth.currentUser
         if (currentUser != null) {
             fetchUserName(currentUser.uid)
+            fetchUserIMT(currentUser.uid)
         } else {
             Toast.makeText(requireContext(), "Anda belum masuk. Harap login terlebih dahulu.", Toast.LENGTH_SHORT).show()
             val intent = Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
         }
+
+
+
+
+
+
+
     }
 
 
+    private fun fetchUserIMT(userID: String) {
+        firestore.collection("users")
+            .document(userID)
+            .collection("imt")
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val notasi = document.getString("notasi")
+                    if (notasi != null) {
+                        binding.tvIndextubuh.text = notasi
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("fetchUserIMT", "Gagal mendapatkan data IMT", exception)
+            }
+    }
 
 
     private fun startAutoScroll() {

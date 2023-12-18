@@ -10,6 +10,7 @@ import com.capstone.healthscanapp.databinding.ActivityLoginBinding
 import com.capstone.healthscanapp.local.pref.PrefsManager
 import com.capstone.healthscanapp.ui.app.custome_view.EyeIconView
 import com.capstone.healthscanapp.ui.app.ui.home_imt.IndeksTubuhActivity
+import com.capstone.healthscanapp.ui.app.ui.home_main.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -58,34 +59,47 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passwordEditText.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
+                // Menampilkan pesan kesalahan jika email atau password kosong
                 binding.emailEditText.error = "Jangan Kosong"
                 binding.passwordEditText.error = "Jangan Kosong"
             } else {
                 showLoading(true)
-                // Sign in user with email and password
+                // Melakukan proses login
                 firebaseAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         showLoading(false)
                         if (task.isSuccessful) {
                             val user = firebaseAuth.currentUser
                             if (user != null && user.isEmailVerified) {
-                                // Save user email to SharedPreferences
-                               // saveUserEmailToPreferences(email)
+                                // Menyimpan informasi login dan mengarahkan ke halaman yang tepat
                                 prefsManager.userEmail = email
                                 prefsManager.isExampleLogin = true
 
-                                // Proceed to home activity
-                                val intent =
+                                val prefs = getSharedPreferences("MyPrefsf", MODE_PRIVATE)
+                                val isFirstRun = prefs.getBoolean("isFirstRuns", true)
+
+                                val intent = if (isFirstRun) {
+                                    // Menunjukkan IndeksTubuhActivity jika isFirstRun true
                                     Intent(this@LoginActivity, IndeksTubuhActivity::class.java)
+                                } else {
+                                    // Menuju HomeActivity jika isFirstRun false
+                                    Intent(this@LoginActivity, HomeActivity::class.java)
+                                }
+
                                 startActivity(intent)
+
+                                // Mengubah nilai isFirstRun agar tidak menampilkan IndeksTubuhActivity lagi
+                                prefs.edit().putBoolean("isFirstRuns", false).apply()
                                 finish()
                             } else {
+                                // Menampilkan pesan jika verifikasi email belum dilakukan
                                 Toast.makeText(
                                     baseContext, "Tolong verifikasi email anda, sebelum login",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
                         } else {
+                            // Menampilkan pesan jika autentikasi gagal
                             binding.emailEditText.error = "Email salah"
                             binding.passwordEditText.error = "Password salah"
                         }

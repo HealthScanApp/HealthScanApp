@@ -66,7 +66,11 @@ class IndeksTubuhActivity : AppCompatActivity() {
                     .add(imtData)
                     .addOnSuccessListener {documentReference ->
                         showToast("Data IMT berhasil disimpan")
-                        navigateToHomeActivity()
+                        if (tinggiBadanCm != null && beratBadanKg != null) {
+                            navigateToHomeActivity()
+                        } else {
+                            showToast("Isi data indeks tubuh terlebih dahulu")
+                        }
                     }
                     .addOnFailureListener { e ->
                         showToast("Gagal menyimpan data IMT: ${e.message}")
@@ -79,6 +83,7 @@ class IndeksTubuhActivity : AppCompatActivity() {
             binding.edtHasil.text = getString(R.string.pesan_error)
         }
     }
+
 
 
     private fun showToast(message: String) {

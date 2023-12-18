@@ -16,10 +16,10 @@
     <string name="my">My</string>
     <string name="todo">TODO</string>
     <string name="hai">Hai,</string>
-    <string name="name">Mohamad Fahmi Wahyu</string>
+    <string name="name">Mohamad Fahmi Wahyu Aji bimas sankerta</string>
     <string name="tanda_seru">!</string>
-    <string name="kriteria_badan">Kriteria beratan badan anda :</string>
-    <string name="normal">Normal</string>
+    <string name="kriteria_badan">Nilai IMT anda:</string>
+    <string name="normal">Data Belum Ada</string>
     <string name="catatan_konsumsi">Catatan Konsumsi</string>
     <string name="konsultasi">Konsultasi</string>
     <string name="toko_bergizi">Toko Bergizi</string>
