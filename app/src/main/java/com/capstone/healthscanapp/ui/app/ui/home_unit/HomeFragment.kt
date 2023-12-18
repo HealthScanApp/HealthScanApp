@@ -76,6 +76,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+
         carouselViewPager = binding.root.findViewById(R.id.carouselViewPager)
         carouselCardView = binding.root.findViewById(R.id.carouselCardView)
 
