@@ -105,13 +105,6 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
         }
-
-
-
-
-
-
-
     }
 
 
