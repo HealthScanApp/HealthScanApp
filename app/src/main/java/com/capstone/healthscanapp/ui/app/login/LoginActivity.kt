@@ -1,9 +1,6 @@
 package com.capstone.healthscanapp.ui.app.login
-
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.Toast
@@ -13,10 +10,8 @@ import com.capstone.healthscanapp.databinding.ActivityLoginBinding
 import com.capstone.healthscanapp.local.pref.PrefsManager
 import com.capstone.healthscanapp.ui.app.custome_view.EyeIconView
 import com.capstone.healthscanapp.ui.app.ui.home_imt.IndeksTubuhActivity
-import com.capstone.healthscanapp.ui.app.ui.home_main.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.Job
 
 class LoginActivity : AppCompatActivity() {
 

@@ -11,17 +11,21 @@ import com.capstone.healthscanapp.ui.app.ui.home_camera.CameraActivity
 import com.capstone.healthscanapp.ui.app.ui.home_unit.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityHomeBinding
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
 
+        firebaseAuth = FirebaseAuth.getInstance()
         // Inisialisasi FloatingActionButton dengan ID button_chat
         val buttonCamera = findViewById<FloatingActionButton>(R.id.button_Camera)
         bottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -30,8 +34,6 @@ class HomeActivity : AppCompatActivity() {
             intent = Intent(this@HomeActivity, CameraActivity::class.java)
             startActivity(intent)
         }
-
-
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.bottom_home -> {
@@ -46,10 +48,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         replaceFragment(HomeFragment())
-
-
     }
-
     private fun replaceFragment(fragment : Fragment){
         supportFragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit()
     }

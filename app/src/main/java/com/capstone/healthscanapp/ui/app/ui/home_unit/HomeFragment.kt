@@ -4,31 +4,41 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.adapter.CarouselSlideAdapter
 import com.capstone.healthscanapp.databinding.FragmentHomeBinding
+import com.capstone.healthscanapp.local.pref.PrefsManager
+import com.capstone.healthscanapp.ui.app.login.LoginActivity
 import com.capstone.healthscanapp.ui.app.ui.home_main.NotifikasiActivity
 import com.capstone.healthscanapp.ui.app.ui.home_menu.CatatanKonsumsiActivity
 import com.capstone.healthscanapp.ui.app.ui.home_menu.KonsultasiActivity
 import com.capstone.healthscanapp.ui.app.ui.home_menu.TesKesehatanActivity
 import com.capstone.healthscanapp.ui.app.ui.home_menu.TokoBergiziActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var prefsManager: PrefsManager
     private lateinit var carouselViewPager: ViewPager2
     private lateinit var carouselCardView: CardView
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
+
+
     private val imageList = listOf(
         R.drawable.slide1,
         R.drawable.slide2,
         R.drawable.slide3
-        // Add more slides as needed
     )
 
     private val handler = Handler(Looper.getMainLooper())
@@ -40,6 +50,10 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        prefsManager = PrefsManager(requireContext())
+        firebaseAuth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+
 
         binding.btnCatatanKonsumsi.setOnClickListener {
             startActivity(Intent(requireContext(), CatatanKonsumsiActivity::class.java))
@@ -73,6 +87,27 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        firebaseAuth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+
+        // Check apakah pengguna sudah masuk atau belum
+        val currentUser = firebaseAuth.currentUser
+        if (currentUser != null) {
+            fetchUserName(currentUser.uid)
+        } else {
+            Toast.makeText(requireContext(), "Anda belum masuk. Harap login terlebih dahulu.", Toast.LENGTH_SHORT).show()
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+
+
+
     private fun startAutoScroll() {
         runnable = Runnable {
             val currentItem = carouselViewPager.currentItem
@@ -89,4 +124,24 @@ class HomeFragment : Fragment() {
         handler.removeCallbacks(runnable)
         super.onDestroyView()
     }
+
+    private fun fetchUserName(userID: String) {
+        firestore.collection("users")
+            .document(userID)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    // Dokumen pengguna ditemukan
+                    val userName = document.getString("name")
+                    binding.userName.text = userName
+                } else {
+                    Log.d("fetchUserName", "Dokumen pengguna tidak ditemukan")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("fetchUserName", "Gagal mendapatkan data pengguna", exception)
+            }
+    }
 }
+
+
