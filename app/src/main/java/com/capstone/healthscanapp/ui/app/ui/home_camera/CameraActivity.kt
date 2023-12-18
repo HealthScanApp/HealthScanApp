@@ -3,6 +3,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,10 +16,15 @@ import com.capstone.healthscanapp.databinding.ActivityCameraBinding
 import com.capstone.healthscanapp.ml.FcModel
 import com.capstone.healthscanapp.ui.app.ui.home_camera.IntentCameraActivity.Companion.CAMERA_RESULT
 import org.tensorflow.lite.DataType
+import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import timber.log.Timber
+import java.io.FileInputStream
 import java.io.IOException
+import java.io.InputStream
+import java.nio.MappedByteBuffer
+import java.nio.channels.FileChannel
 
 
 class CameraActivity : AppCompatActivity() {
@@ -26,7 +32,7 @@ class CameraActivity : AppCompatActivity() {
 
     private var currentImageUri: Uri? = null
     private lateinit var bitmap: Bitmap
-
+    private lateinit var interpreter: Interpreter
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -38,7 +44,6 @@ class CameraActivity : AppCompatActivity() {
                 Toast.makeText(this, "Permission request denied", Toast.LENGTH_LONG).show()
             }
         }
-
 
     private fun allPermissionsGranted() =
         ContextCompat.checkSelfPermission(
@@ -53,7 +58,7 @@ class CameraActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-
+        interpreter = Interpreter(loadModelFile(), Interpreter.Options())
 
         val labels = application.assets.open("labels.txt").bufferedReader().readLines()
 
@@ -70,7 +75,6 @@ class CameraActivity : AppCompatActivity() {
         binding.btnGallery.setOnClickListener { startGallery() }
         binding.btnUpload.setOnClickListener {  }
 
-
         binding.btnPrediksi.setOnClickListener {
             if (::bitmap.isInitialized) {
                 val tensorImage = TensorImage(DataType.FLOAT32)
@@ -78,13 +82,12 @@ class CameraActivity : AppCompatActivity() {
                 val resizedBitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
                 tensorImage.load(resizedBitmap)
 
-                val model = FcModel.newInstance(this)
-
                 val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 224, 224, 3), DataType.FLOAT32)
                 inputFeature0.loadBuffer(tensorImage.buffer)
 
-                val outputs = model.process(inputFeature0)
-                val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray
+                val outputs = TensorBuffer.createFixedSize(intArrayOf(1, 9), DataType.FLOAT32)
+                interpreter.run(inputFeature0.buffer, outputs.buffer.rewind())
+                val outputFeature0 = outputs.floatArray
 
                 var maxIdx = 0
                 outputFeature0.forEachIndexed { index, fl ->
@@ -92,19 +95,12 @@ class CameraActivity : AppCompatActivity() {
                         maxIdx = index
                     }
                 }
-
                 binding.edtDescription.text = labels[maxIdx]
-
-                model.close()
             } else {
                 Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show()
             }
         }
-
-
     }
-
-
 
     private fun startCamera() {
         val intent = Intent(this, IntentCameraActivity::class.java)
@@ -119,7 +115,6 @@ class CameraActivity : AppCompatActivity() {
             showImage()
         }
     }
-
     private fun showImage() {
         currentImageUri?.let { uri ->
             Timber.tag("Image URI").d("showImage: %s", uri)
@@ -131,17 +126,48 @@ class CameraActivity : AppCompatActivity() {
             }
         }
     }
-
-
-
+    private fun showImage(inputStream: InputStream) {
+        try {
+            val options = BitmapFactory.Options()
+            options.inPreferredConfig = Bitmap.Config.ARGB_8888 // Konfigurasi sesuai dengan gambar RGB
+            bitmap = BitmapFactory.decodeStream(inputStream, null, options)!!
+            binding.imgPreview.setImageBitmap(bitmap)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+    }
+    private fun loadModelFile(): MappedByteBuffer {
+        val modelFileDescriptor = assets.openFd("fc_model.tflite")
+        val inputStream = FileInputStream(modelFileDescriptor.fileDescriptor)
+        val fileChannel = inputStream.channel
+        val startOffset = modelFileDescriptor.startOffset
+        val declaredLength = modelFileDescriptor.declaredLength
+        return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength)
+    }
     private fun startGallery() {
         val intent = Intent()
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
-        startActivityForResult(intent, 100)
+        launcherGallery.launch(intent)
     }
-
-
+    private val launcherGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK && result.data != null) {
+            val selectedImage: Uri? = result.data?.data
+            selectedImage?.let { uri ->
+                try {
+                    val inputStream = contentResolver.openInputStream(uri)
+                    inputStream?.let {
+                        showImage(it)
+                        currentImageUri = uri // Update currentImageUri with the selected image URI
+                    }
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -149,17 +175,17 @@ class CameraActivity : AppCompatActivity() {
             val uri = data?.data
             uri?.let {
                 try {
-                    bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, it)
-                    binding.imgPreview.setImageBitmap(bitmap)
-                    currentImageUri = it // Update currentImageUri with the selected image URI
+                    val inputStream = contentResolver.openInputStream(uri)
+                    inputStream?.let {
+                        showImage(it)
+                        currentImageUri = uri // Update currentImageUri with the selected image URI
+                    }
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
             }
         }
     }
-
-
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
     }

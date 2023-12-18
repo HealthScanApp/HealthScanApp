@@ -17,6 +17,7 @@ class IndeksTubuhActivity : AppCompatActivity() {
 
         binding.simpanHasil.setOnClickListener {
             hitungIMT()
+
         }
 
     }
