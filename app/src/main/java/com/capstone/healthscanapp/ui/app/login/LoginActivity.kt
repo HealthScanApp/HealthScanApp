@@ -12,6 +12,7 @@ import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.ActivityLoginBinding
 import com.capstone.healthscanapp.local.pref.PrefsManager
 import com.capstone.healthscanapp.ui.app.custome_view.EyeIconView
+import com.capstone.healthscanapp.ui.app.ui.home_imt.IndeksTubuhActivity
 import com.capstone.healthscanapp.ui.app.ui.home_main.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -80,7 +81,7 @@ class LoginActivity : AppCompatActivity() {
 
                                 // Proceed to home activity
                                 val intent =
-                                    Intent(this@LoginActivity, HomeActivity::class.java)
+                                    Intent(this@LoginActivity, IndeksTubuhActivity::class.java)
                                 startActivity(intent)
                                 finish()
                             } else {
