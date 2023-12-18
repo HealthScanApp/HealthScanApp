@@ -15,6 +15,7 @@ class PrefsManager(context: Context) : Krate {
     var exampleBoolean by booleanPref().withDefault(false)
     var isExampleLogin by booleanPref().withDefault(false)
     var token by stringPref().withDefault("")
+    var userEmail by stringPref().withDefault("")
 
     fun clear() {
         sharedPreferences.edit().clear().apply()

@@ -1,9 +1,9 @@
-Burger
-Fried_Chicken
 Fried_Noodles
-Fried_Rice
-Meetball
+Fried_Chicken
 Pizza
-Rendang
 Sate
+Meetball
+Burger
+Rendang
+Fried_Rice
 Soto

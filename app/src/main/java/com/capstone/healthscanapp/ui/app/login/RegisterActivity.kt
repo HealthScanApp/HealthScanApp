@@ -3,6 +3,7 @@ package com.capstone.healthscanapp.ui.app.login
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.healthscanapp.R
@@ -61,9 +62,11 @@ class RegisterActivity : AppCompatActivity() {
             } else if (password.length < 6) {
                 binding.passwordEditText.error = "Password harus lebih dari 6 karakter"
             } else {
+                showLoading(true)
                 // Create user with email and password
                 firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
+                        showLoading(false)
                         if (task.isSuccessful) {
                             // Store user data in Firestore
                             val user = hashMapOf(
@@ -140,5 +143,9 @@ class RegisterActivity : AppCompatActivity() {
 
         // Clear focus to ensure the transformation is applied immediately
         binding.passwordEditText.clearFocus()
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

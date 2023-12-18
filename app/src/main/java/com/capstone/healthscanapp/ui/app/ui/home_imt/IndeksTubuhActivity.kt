@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.ActivityIndeksTubuhBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class IndeksTubuhActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityIndeksTubuhBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityIndeksTubuhBinding.inflate(layoutInflater)
@@ -17,6 +22,7 @@ class IndeksTubuhActivity : AppCompatActivity() {
 
         binding.simpanHasil.setOnClickListener {
             hitungIMT()
+
         }
 
     }
