@@ -37,14 +37,11 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        mlModelBinding = true
     }
 
     testOptions {
         unitTests.isReturnDefaultValues = true
-    }
-
-    buildFeatures {
-        mlModelBinding = true
     }
 
 }

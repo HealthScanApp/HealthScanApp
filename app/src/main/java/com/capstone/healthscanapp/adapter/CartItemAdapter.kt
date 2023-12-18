@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.data.CartItem
+import java.text.NumberFormat
+import java.util.Locale
 
 class CartItemAdapter(
     private val cartItems: List<CartItem>,
@@ -37,8 +39,11 @@ class CartItemAdapter(
         private val itemImageView: ImageView = itemView.findViewById(R.id.itemImageView)
 
         fun bind(cartItem: CartItem) {
+            val myIndonesianLocale = Locale("in", "ID")
+            val formater: NumberFormat = NumberFormat.getCurrencyInstance(myIndonesianLocale)
+            val price = formater.format(cartItem.price)
             itemNameTextView.text = cartItem.name
-            itemPriceTextView.text = cartItem.price.toString()
+            itemPriceTextView.text = price
             itemImageView.setImageResource(cartItem.imageResId)
         }
     }

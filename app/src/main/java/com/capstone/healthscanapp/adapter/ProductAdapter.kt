@@ -32,7 +32,6 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList[position]
         holder.bind(product)
-        holder.itemView.setOnClickListener { itemClickListener.onItemClick(product) }
     }
 
     override fun getItemCount(): Int {
@@ -57,6 +56,9 @@ class ProductAdapter(
             productNameTextView.text = product.name
             productPriceTextView.text = product.price
 
+            productImageView.setOnClickListener {
+                itemClickListener.onItemClick(product)
+            }
             buyButton.setOnClickListener {
                 // Add the product to the cart
                 addToCart(product)
@@ -79,8 +81,6 @@ class ProductAdapter(
                 CartManager.addToCart(cartItem)
             }
 
-            // Notify the CartActivity to update the UI
-            itemClickListener.onItemClick(product)
         }
 
     }

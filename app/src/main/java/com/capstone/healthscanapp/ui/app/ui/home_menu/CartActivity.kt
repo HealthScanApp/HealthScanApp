@@ -16,6 +16,7 @@ import com.capstone.healthscanapp.adapter.OnItemClickListener
 import com.capstone.healthscanapp.data.CartItem
 import com.capstone.healthscanapp.data.CartManager
 import com.capstone.healthscanapp.data.Product
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -56,6 +57,9 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
         backButton.setOnClickListener {
             onBackPressed()
         }
+
+        updateCartUI()
+
     }
 
     // Dummy function to illustrate retrieving cart items
@@ -75,9 +79,6 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
             imageResId = product.imageResId
         )
         CartManager.addToCart(cartItem)
-
-        // Update the UI to reflect the changes in the cart
-        updateCartUI()
     }
 
     private fun updateCartUI() {
@@ -96,13 +97,16 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
             cartItemsRecyclerView.layoutManager = LinearLayoutManager(this)
             cartItemsRecyclerView.adapter = CartItemAdapter(cartItems, this)
 
-            val totalPrice = calculateTotalPrice(cartItems)
-            totalTextView.text = "Total: Rp $totalPrice"
+            val myIndonesianLocale = Locale("in", "ID")
+            val formater: NumberFormat = NumberFormat.getCurrencyInstance(myIndonesianLocale)
+            val totalPrice = formater.format(calculateTotalPrice(cartItems))
+            totalTextView.text = "Total: $totalPrice"
             Log.d("CartActivity", "Is totalTextView visible? ${totalTextView.visibility == View.VISIBLE}")
         }
     }
 
     private fun calculateTotalPrice(cartItems: List<CartItem>): Double {
+
         var totalPrice = 0.0
 
         for (cartItem in cartItems) {
