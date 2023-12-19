@@ -86,11 +86,11 @@ class RiwayatMakananAdapter(private val context: Context, private var list: Muta
                             document.reference.delete()
                                 .addOnSuccessListener {
                                     // Document successfully deleted from Firestore
-                                    Toast.makeText(context, "Data dihapus di Firestore", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "Data dihapus ", Toast.LENGTH_SHORT).show()
                                 }
                                 .addOnFailureListener { e ->
                                     // Handle failure to delete document from Firestore
-                                    Toast.makeText(context, "Gagal menghapus data di Firestore", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "Gagal menghapus data ", Toast.LENGTH_SHORT).show()
                                 }
                         }
                     }
