@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.adapter.CartItemAdapter
 import com.capstone.healthscanapp.adapter.OnItemClickListener
+import com.capstone.healthscanapp.adapter.OnQuantityChangeListener
 import com.capstone.healthscanapp.data.CartItem
 import com.capstone.healthscanapp.data.CartManager
 import com.capstone.healthscanapp.data.Product
@@ -46,7 +47,14 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
             checkoutButton.visibility = View.VISIBLE
 
             cartItemsRecyclerView.layoutManager = LinearLayoutManager(this)
-            cartItemsRecyclerView.adapter = CartItemAdapter(cartItems, this)
+
+            val adapter = CartItemAdapter(cartItems, this, object : OnQuantityChangeListener {
+                override fun onQuantityChanged() {
+                    updateCartUI()
+                }
+            })
+
+            cartItemsRecyclerView.adapter = adapter
         }
 
         checkoutButton.setOnClickListener {
@@ -59,7 +67,6 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
         }
 
         updateCartUI()
-
     }
 
     // Dummy function to illustrate retrieving cart items
@@ -79,6 +86,8 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
             imageResId = product.imageResId
         )
         CartManager.addToCart(cartItem)
+
+        updateCartUI()
     }
 
     private fun updateCartUI() {
@@ -95,15 +104,26 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
             checkoutButton.visibility = View.VISIBLE
 
             cartItemsRecyclerView.layoutManager = LinearLayoutManager(this)
-            cartItemsRecyclerView.adapter = CartItemAdapter(cartItems, this)
+
+            // Pass the OnQuantityChangeListener to the adapter
+            val adapter = CartItemAdapter(cartItems, this, object : OnQuantityChangeListener {
+                override fun onQuantityChanged() {
+                    updateCartUI()
+                }
+            })
+
+            cartItemsRecyclerView.adapter = adapter
 
             val myIndonesianLocale = Locale("in", "ID")
-            val formater: NumberFormat = NumberFormat.getCurrencyInstance(myIndonesianLocale)
-            val totalPrice = formater.format(calculateTotalPrice(cartItems))
+            val formatter: NumberFormat = NumberFormat.getCurrencyInstance(myIndonesianLocale)
+            val totalPrice = formatter.format(calculateTotalPrice(cartItems))
             totalTextView.text = "Total: $totalPrice"
             Log.d("CartActivity", "Is totalTextView visible? ${totalTextView.visibility == View.VISIBLE}")
         }
+
+        cartItemsRecyclerView.adapter?.notifyDataSetChanged()
     }
+
 
     private fun calculateTotalPrice(cartItems: List<CartItem>): Double {
 

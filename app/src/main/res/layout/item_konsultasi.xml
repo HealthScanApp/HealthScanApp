@@ -16,13 +16,11 @@
         android:padding="16dp">
 
         <!-- Doctor Image -->
-        <ImageView
-            android:id="@+id/itemImage"
-            android:layout_width="63dp"
-            android:layout_height="84dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/person_24" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/profile_aji"
+            android:id="@+id/itemImage"/>
 
         <!-- Doctor Information -->
         <LinearLayout
