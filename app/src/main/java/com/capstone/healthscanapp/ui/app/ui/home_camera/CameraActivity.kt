@@ -8,13 +8,16 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
+import com.google.firebase.Timestamp
 import com.capstone.healthscanapp.databinding.ActivityCameraBinding
-import com.capstone.healthscanapp.ml.FcModel
 import com.capstone.healthscanapp.ui.app.ui.home_camera.IntentCameraActivity.Companion.CAMERA_RESULT
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.support.image.TensorImage
@@ -29,10 +32,12 @@ import java.nio.channels.FileChannel
 
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
-
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
     private var currentImageUri: Uri? = null
     private lateinit var bitmap: Bitmap
     private lateinit var interpreter: Interpreter
+    private lateinit var currentUserID: String
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -58,9 +63,15 @@ class CameraActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+        firebaseAuth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+        currentUserID = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+
+
         interpreter = Interpreter(loadModelFile(), Interpreter.Options())
 
         val labels = application.assets.open("labels.txt").bufferedReader().readLines()
+        val nutrition = application.assets.open("nutrition.txt").bufferedReader().readLines()
 
 
         if (!allPermissionsGranted()) {
@@ -73,10 +84,10 @@ class CameraActivity : AppCompatActivity() {
 
         binding.btnCamera.setOnClickListener { startCamera() }
         binding.btnGallery.setOnClickListener { startGallery() }
-        binding.btnUpload.setOnClickListener {  }
 
         binding.btnPrediksi.setOnClickListener {
             if (::bitmap.isInitialized) {
+                showLoading(true)
                 val tensorImage = TensorImage(DataType.FLOAT32)
 
                 val resizedBitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
@@ -95,11 +106,43 @@ class CameraActivity : AppCompatActivity() {
                         maxIdx = index
                     }
                 }
-                binding.edtDescription.text = labels[maxIdx]
+
+                val predictedLabel = labels[maxIdx]
+                val predictedNutrition = nutrition[maxIdx]
+
+                binding.edtDescription.text = predictedLabel
+                binding.edtNutrion.text = predictedNutrition
+
+                //binding.edtDescription.text = labels[maxIdx]
+                val currentTimeStamp = Timestamp.now()
+
+                val dataKonsumsi = hashMapOf(
+                    "label" to predictedLabel,
+                    "nutrition" to predictedNutrition,
+                    "timestamp" to currentTimeStamp
+                )
+                if (currentUserID.isNotEmpty()) {
+                    firestore.collection("users")
+                        .document(currentUserID)
+                        .collection("riwayat_konsumsi")
+                        .add(dataKonsumsi)
+                        .addOnSuccessListener {documentReference ->
+                            showToast("Data konsumsimu berhasil disimpan")
+                            showLoading(false)
+                        }
+                        .addOnFailureListener { e ->
+                            showToast("Gagal menyimpan data konsumsi : ${e.message}")
+                            showLoading(false)
+                        }
+                }
+
+
             } else {
                 Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show()
             }
         }
+
+
     }
 
     private fun startCamera() {
@@ -168,6 +211,7 @@ class CameraActivity : AppCompatActivity() {
             }
         }
     }
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -178,7 +222,7 @@ class CameraActivity : AppCompatActivity() {
                     val inputStream = contentResolver.openInputStream(uri)
                     inputStream?.let {
                         showImage(it)
-                        currentImageUri = uri // Update currentImageUri with the selected image URI
+                        currentImageUri = uri
                     }
                 } catch (e: IOException) {
                     e.printStackTrace()
@@ -188,6 +232,12 @@ class CameraActivity : AppCompatActivity() {
     }
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
+    }
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }
 

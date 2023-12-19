@@ -16,10 +16,10 @@
     <string name="my">My</string>
     <string name="todo">TODO</string>
     <string name="hai">Hai,</string>
-    <string name="name">Mohamad Aji Hermansya</string>
+    <string name="name">Mohamad Fahmi Wahyu Aji bimas sankerta</string>
     <string name="tanda_seru">!</string>
-    <string name="kriteria_badan">Kriteria beratan badan anda :</string>
-    <string name="normal">Normal</string>
+    <string name="kriteria_badan">Nilai IMT anda:</string>
+    <string name="normal">Data Belum Ada</string>
     <string name="catatan_konsumsi">Catatan Konsumsi</string>
     <string name="konsultasi">Konsultasi</string>
     <string name="toko_bergizi">Toko Bergizi</string>
@@ -33,7 +33,7 @@
     <string name="empty_camera">Yahh..gagal memunculkan kamera!</string>
     <string name="empty_take_photho">Gagal mengambil gambar, ulangi sekali lagi!</string>
     <string name="My">Profil</string>
-    <string name="email">ajihermansya14@gmail.com</string>
+    <string name="email">healthscan.id@gmail.com</string>
     <string name="keluar">Keluar</string>
     <string name="akun_saya">Akun Saya</string>
     <string name="ganti_bahasa">Ganti Bahasa</string>
@@ -88,5 +88,12 @@
     <string name="default_web_client_id">your_web_client_id_here</string>
     <string name="Keranjang">Keranjang Belanja</string>
     <string name="Detail_Product">Detail Product</string>
+    <string name="logo">Logo</string>
+    <string name="poto_product">Poto_Product</string>
+    <string name="default_web_client_id">your_web_client_id_here</string>
+    <string name="riwayat_konsumsi">Riwayat Konsumsi</string>
+    <string name="tanggal">Date</string>
+    <string name="nama_makanan">Pizza</string>
+    <string name="nutrion">nutrion</string>
 
 </resources>
