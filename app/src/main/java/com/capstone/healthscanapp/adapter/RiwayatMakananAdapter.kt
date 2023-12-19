@@ -9,6 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.CardHistoryBinding
 import com.capstone.healthscanapp.model.RiwayatMakanan
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class RiwayatMakananAdapter(private val context: Context, private var list: MutableList<RiwayatMakanan>) :
     RecyclerView.Adapter<RiwayatMakananAdapter.RiwayatViewHolder>() {
@@ -32,7 +36,10 @@ class RiwayatMakananAdapter(private val context: Context, private var list: Muta
         val riwayatMakanan = list[position]
         holder.binding.nutrions.text = riwayatMakanan.nutrition
         holder.binding.nameFood.text = riwayatMakanan.label
-        holder.binding.tanggal.text = riwayatMakanan.timestamp.toString()
+
+        val dateFormat = SimpleDateFormat("dd MMMM yyyy, HH:mm", Locale.getDefault())
+        val formattedDate = dateFormat.format(riwayatMakanan.timestamp)
+        holder.binding.tanggal.text = formattedDate
 
         holder.itemView.setOnClickListener {
             onItemClicked(holder.adapterPosition)
@@ -62,8 +69,35 @@ class RiwayatMakananAdapter(private val context: Context, private var list: Muta
 
     private fun deleteItem(position: Int) {
         if (position < list.size) {
-            list.removeAt(position)
+            val deletedItem = list.removeAt(position)
             notifyItemRemoved(position)
+
+            // Remove the document from Firestore
+            val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+            if (currentUserID != null) {
+                FirebaseFirestore.getInstance()
+                    .collection("users")
+                    .document(currentUserID)
+                    .collection("riwayat_konsumsi")
+                    .whereEqualTo("timestamp", deletedItem.timestamp) // Assuming timestamp is unique
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        for (document in documents) {
+                            document.reference.delete()
+                                .addOnSuccessListener {
+                                    // Document successfully deleted from Firestore
+                                    Toast.makeText(context, "Data dihapus di Firestore", Toast.LENGTH_SHORT).show()
+                                }
+                                .addOnFailureListener { e ->
+                                    // Handle failure to delete document from Firestore
+                                    Toast.makeText(context, "Gagal menghapus data di Firestore", Toast.LENGTH_SHORT).show()
+                                }
+                        }
+                    }
+                    .addOnFailureListener { e ->
+                        // Handle failure to fetch data from Firestore
+                    }
+            }
         }
     }
 
