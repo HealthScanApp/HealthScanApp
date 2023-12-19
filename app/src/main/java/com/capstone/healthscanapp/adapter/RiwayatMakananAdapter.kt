@@ -32,7 +32,7 @@ class RiwayatMakananAdapter(private val context: Context, private var list: Muta
         val riwayatMakanan = list[position]
         holder.binding.nutrions.text = riwayatMakanan.nutrition
         holder.binding.nameFood.text = riwayatMakanan.label
-        holder.binding.tanggal.text = riwayatMakanan.timestamp
+      //  holder.binding.tanggal.text = riwayatMakanan.timestamp.toString()
 
         holder.itemView.setOnClickListener {
             onItemClicked(holder.adapterPosition)
@@ -67,8 +67,8 @@ class RiwayatMakananAdapter(private val context: Context, private var list: Muta
         }
     }
 
-    fun sortDataByDescending() {
-        list.sortByDescending { it.timestamp }
-        notifyDataSetChanged()
-    }
+//    fun sortDataByDescending() {
+//        list.sortByDescending { it.timestamp }
+//        notifyDataSetChanged()
+//    }
 }

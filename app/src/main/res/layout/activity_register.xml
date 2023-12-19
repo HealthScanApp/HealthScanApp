@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -29,8 +30,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
+            android:fontFamily="@font/poppins_light"
             android:layout_marginTop="24dp"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textAlignment="center"
             android:textSize="34sp"
             android:textStyle="bold"
@@ -40,9 +42,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_light"
             android:layout_marginBottom="24dp"
-            android:text="create an account to access all features"
+            android:text="@string/desc_signup"
             android:textAlignment="viewStart"
             android:textSize="24sp"
             tools:ignore="RtlCompat" />
@@ -52,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/shape_rectangel_putih"
             android:padding="12dp" />
 
         <com.capstone.healthscanapp.ui.app.custome_view.EmailEditTextView
@@ -60,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/shape_rectangel_putih"
             android:padding="12dp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -79,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/rounded_button"
+                    android:background="@drawable/shape_rectangel_putih"
                     android:padding="12dp" />
 
                 <com.capstone.healthscanapp.ui.app.custome_view.EyeIconView
@@ -98,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Sign Up" />
+            android:text="@string/sign_ups" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -106,7 +109,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Or"
+            android:text="@string/or"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -119,7 +122,7 @@
             android:drawablePadding="8dp"
             android:gravity="center"
             android:padding="16dp"
-            android:text="Sign up with Google"
+            android:text="@string/sign_up_with_google"
             android:textAlignment="center"
             android:textColor="#757575" />
 
@@ -130,7 +133,7 @@
             android:textColor="@color/black"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="24dp"
-            android:text="Already have an account? Login" />
+            android:text="@string/already_have_an_account_login" />
 
     </LinearLayout>
 

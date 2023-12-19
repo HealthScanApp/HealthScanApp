@@ -90,5 +90,17 @@
     <string name="tanggal">Date</string>
     <string name="nama_makanan">Pizza</string>
     <string name="nutrion">nutrion</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="log_in">Log In</string>
+    <string name="desc_login">Welcome Back! Sign in with your email and password or continue with social media</string>
+    <string name="sign_in">Sign In</string>
+    <string name="or">Or</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="desc_signup">create an account to access all features</string>
+    <string name="sign_ups">Sign Up</string>
+    <string name="sign_up_with_google">Sign up with Google</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
 
 </resources>

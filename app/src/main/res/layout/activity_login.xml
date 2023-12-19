@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -32,7 +33,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginTop="24dp"
-            android:text="Sign In"
+            android:fontFamily="@font/poppins_light"
+            android:text="@string/sign_in"
             android:textAlignment="center"
             android:textSize="34sp"
             android:textStyle="bold"
@@ -44,7 +46,8 @@
             android:layout_gravity="left"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
-            android:text="Welcome Back! Sign in with your email and password or continue with social media"
+            android:fontFamily="@font/poppins_light"
+            android:text="@string/desc_login"
             android:textAlignment="viewStart"
             android:textSize="20sp"
             tools:ignore="RtlCompat" />
@@ -54,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/shape_rectangel_putih"
             android:padding="12dp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -73,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/rounded_button"
+                    android:background="@drawable/shape_rectangel_putih"
                     android:padding="12dp" />
 
                 <com.capstone.healthscanapp.ui.app.custome_view.EyeIconView
@@ -94,14 +97,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="24dp"
-            android:text="Forgot Password?" />
+            android:text="@string/forgot_password" />
 
         <com.capstone.healthscanapp.ui.app.custome_view.ButtonLoginView
             android:id="@+id/logInButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Log In" />
+            android:text="@string/log_in" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -109,7 +112,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Or"
+            android:text="@string/or"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -122,7 +125,7 @@
             android:drawablePadding="8dp"
             android:gravity="center"
             android:padding="16dp"
-            android:text="Login with Google"
+            android:text="@string/login_with_google"
             android:textAlignment="center"
             android:textColor="#757575" />
 
@@ -132,7 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Don't have an account? Sign Up" />
+            android:text="@string/don_t_have_an_account_sign_up" />
     </LinearLayout>
 
 
