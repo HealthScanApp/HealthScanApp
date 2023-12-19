@@ -141,6 +141,8 @@ class CameraActivity : AppCompatActivity() {
                 Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show()
             }
         }
+
+
     }
 
     private fun startCamera() {

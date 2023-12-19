@@ -14,7 +14,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class IndeksTubuhActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityIndeksTubuhBinding
-    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
     private lateinit var currentUserID: String
 

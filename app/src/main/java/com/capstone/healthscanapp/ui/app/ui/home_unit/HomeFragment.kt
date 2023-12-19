@@ -34,7 +34,6 @@ class HomeFragment : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
 
-
     private val imageList = listOf(
         R.drawable.slide1,
         R.drawable.slide2,
@@ -43,7 +42,7 @@ class HomeFragment : Fragment() {
 
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var runnable: Runnable
-    private val delay = 3000L // Delay in milliseconds between each slide
+    private val delay = 3000L
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

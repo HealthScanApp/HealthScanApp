@@ -23,6 +23,9 @@
         android:theme="@style/Theme.HealthScanApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.app.ui.home_menu.CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.app.ui.home_imt.IndeksTubuhActivity"
             android:exported="false" />
         <activity
@@ -49,7 +52,6 @@
         <activity
             android:name=".ui.app.ui.home_camera.CameraActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.app.login.RegisterActivity"
             android:exported="false" />
@@ -58,11 +60,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.app.login.LoginActivity"
-            android:exported="false" >
-        </activity>
-        <activity
-            android:name=".ui.app.ui.home_menu.CartActivity"
-            android:exported="false" />
+            android:exported="false"></activity>
         <activity
             android:name=".ui.app.ui.home_menu.ProductDetailActivity"
             android:exported="false" />
@@ -74,6 +72,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
