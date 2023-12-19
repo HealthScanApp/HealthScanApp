@@ -1,6 +1,5 @@
 package com.capstone.healthscanapp.ui.app.ui.home_main
 
-import ProfileFragment
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +8,7 @@ import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.databinding.ActivityHomeBinding
 import com.capstone.healthscanapp.ui.app.ui.home_camera.CameraActivity
 import com.capstone.healthscanapp.ui.app.ui.home_unit.HomeFragment
+import com.capstone.healthscanapp.ui.app.ui.home_unit.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth

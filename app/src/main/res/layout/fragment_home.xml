@@ -29,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/profile_aji" />
+                android:src="@drawable/ic_person" />
         </com.google.android.material.card.MaterialCardView>
 
 
@@ -188,11 +188,11 @@
 
                     <TextView
                         android:id="@+id/textView"
-                        android:layout_width="100dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="@string/catatan_konsumsi"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -223,11 +223,14 @@
 
                     <TextView
                         android:id="@+id/text_konsultasi"
-                        android:layout_width="100dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
+                        android:gravity=""
                         android:text="@string/konsultasi"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/konsultasi"
                         app:layout_constraintTop_toTopOf="@id/konsultasi" />
 
@@ -267,8 +270,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="@string/toko_bergizi"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/toko_bergizi"
                         app:layout_constraintTop_toTopOf="@id/toko_bergizi" />
 
@@ -296,11 +301,11 @@
 
                     <TextView
                         android:id="@+id/text_kesehatan"
-                        android:layout_width="100dp"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="@string/tes_kesehatan"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -329,7 +334,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/carouselViewPager"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
+                android:layout_height="260dp"
                 app:autoPlay="true"
                 app:showCaption="false"
                 app:showNavigationButtons="false" />

@@ -25,7 +25,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:src="@drawable/profile_aji"
+                    android:src="@drawable/ic_person"
                     android:id="@+id/userImage"/>
 
                 <RelativeLayout

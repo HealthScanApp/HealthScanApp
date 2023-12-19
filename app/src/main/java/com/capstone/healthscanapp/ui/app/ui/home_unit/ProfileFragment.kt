@@ -1,3 +1,5 @@
+package com.capstone.healthscanapp.ui.app.ui.home_unit
+
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
@@ -43,6 +45,8 @@ class ProfileFragment : Fragment() {
         val language = binding.root.findViewById<LinearLayout>(R.id.language)
         val notif = binding.root.findViewById<LinearLayout>(R.id.notifikasi)
         val privasi = binding.root.findViewById<LinearLayout>(R.id.ketentuan_privasi)
+        val akun = binding.root.findViewById<ImageView>(R.id.btn_akunsaya)
+        val edit = binding.root.findViewById<ImageView>(R.id.btn_edit)
         userNameTextView = binding.root.findViewById(R.id.userNames)
         userEmailTextView = binding.root.findViewById(R.id.text_email)
         val keluarButton = binding.root.findViewById<Button>(R.id.riwayatKonseling)
@@ -58,6 +62,16 @@ class ProfileFragment : Fragment() {
 
         privasi.setOnClickListener {
             val intent = Intent(requireContext(), PrivacyActivity::class.java)
+            startActivity(intent)
+        }
+
+        akun.setOnClickListener {
+            val intent = Intent(requireContext(), AkunActivity::class.java)
+            startActivity(intent)
+        }
+
+        edit.setOnClickListener {
+            val intent = Intent(requireContext(), EditProfileActivity::class.java)
             startActivity(intent)
         }
 
@@ -110,6 +124,5 @@ class ProfileFragment : Fragment() {
                 Log.e("fetchUserName", "Gagal mendapatkan data pengguna", exception)
             }
     }
-
 
 }
