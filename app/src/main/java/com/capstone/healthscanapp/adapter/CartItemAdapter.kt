@@ -36,7 +36,6 @@ class CartItemAdapter(
         return cartItems.size
     }
 
-    // ViewHolder class for each item in the cart
     class CartItemViewHolder(itemView: View, private val adapter: CartItemAdapter) :
         RecyclerView.ViewHolder(itemView) {
         private val itemNameTextView: TextView = itemView.findViewById(R.id.itemNameTextView)

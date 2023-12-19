@@ -25,15 +25,14 @@ class MyButtonClass : AppCompatButton {
         init()
     }
 
-    // Tambahkan override untuk onTouchEvent
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                // Saat tombol ditekan, set latar belakang ke warna merah
+
                 background = ContextCompat.getDrawable(context, R.drawable.bg_buttons)
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                // Saat tombol dilepaskan atau peristiwa pencetan dibatalkan, kembalikan latar belakang ke normal
+
                 background = if (isEnabled) enabledBackground else disabledBackground
             }
         }

@@ -36,7 +36,7 @@ class SignGoogleActivity : AppCompatActivity() {
         if (currentUser != null) {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
-            finish() // finish the current activity to prevent the user from coming back to the SignInActivity using the back button
+            finish()
         }
 
         val signInButton = findViewById<Button>(R.id.googleRegisterButton)

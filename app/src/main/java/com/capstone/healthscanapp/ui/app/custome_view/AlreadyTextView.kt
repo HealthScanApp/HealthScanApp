@@ -26,23 +26,19 @@ class AlreadyTextView : androidx.appcompat.widget.AppCompatTextView {
     }
 
     private fun init() {
-        // Set custom font (replace "your_custom_font.ttf" with the actual font file)
+
         val customFont = ResourcesCompat.getFont(context, R.font.roboto_medium)
         typeface = customFont
 
-        // Set text color
         setTextColor(ContextCompat.getColor(context, R.color.custom_text_color))
 
-        // Set text size
         textSize = resources.getDimension(R.dimen.custom_text_size)
 
-        // Add a subtle fade-in animation
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             alpha = 0f
             animate().alpha(1f).setDuration(500).start()
         }
 
-        // Center the text horizontally
         gravity = Gravity.CENTER_HORIZONTAL
     }
 }

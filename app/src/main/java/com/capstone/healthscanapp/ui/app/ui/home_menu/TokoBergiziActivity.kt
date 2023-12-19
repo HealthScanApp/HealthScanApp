@@ -25,7 +25,6 @@ class TokoBergiziActivity : AppCompatActivity(), OnItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_toko_bergizi)
 
-        // Enable the Up button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         productsRecyclerView = findViewById(R.id.productsRecyclerView)
@@ -82,7 +81,7 @@ class TokoBergiziActivity : AppCompatActivity(), OnItemClickListener {
             Product("Sayur", "Rp 200,000", R.drawable.sayur),
             Product("Obat", "Rp 300,000", R.drawable.obat),
             Product("Madu", "Rp 400,000", R.drawable.madu),
-            // Add more products as needed
+
         )
     }
 
@@ -107,7 +106,7 @@ class TokoBergiziActivity : AppCompatActivity(), OnItemClickListener {
     }
 
     override fun onItemClick(product: Product) {
-        // Handle item click, e.g., show detail view
+
         showProductDetail(product)
     }
 
@@ -116,7 +115,7 @@ class TokoBergiziActivity : AppCompatActivity(), OnItemClickListener {
         detailIntent.putExtra("PRODUCT_NAME", product.name)
         detailIntent.putExtra("PRODUCT_PRICE", product.price)
         detailIntent.putExtra("PRODUCT_IMAGE", product.imageResId)
-        // Add other details as needed
+
         startActivity(detailIntent)
     }
 }

@@ -30,17 +30,13 @@ class ButtonLoginView : AppCompatButton {
             ContextCompat.getColor(context, R.color.gradient_end)
         )
 
-        // Create a gradient drawable
         val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, colors)
 
-        // Set corner radius for rounded corners
         gradientDrawable.cornerRadius =
             resources.getDimension(R.dimen.button_corner_radius)
 
-        // Set the background drawable for the button
         background = gradientDrawable
 
-        // Set text color
         setTextColor(ContextCompat.getColor(context, R.color.white))
     }
 }

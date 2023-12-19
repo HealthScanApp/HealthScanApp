@@ -60,10 +60,9 @@ class ProductAdapter(
                 itemClickListener.onItemClick(product)
             }
             buyButton.setOnClickListener {
-                // Add the product to the cart
+
                 addToCart(product)
 
-                // Notify the user
                 Toast.makeText(itemView.context, "Added to cart!", Toast.LENGTH_SHORT).show()
             }
         }

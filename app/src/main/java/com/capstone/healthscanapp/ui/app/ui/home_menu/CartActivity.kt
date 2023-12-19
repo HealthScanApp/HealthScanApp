@@ -69,16 +69,13 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
         updateCartUI()
     }
 
-    // Dummy function to illustrate retrieving cart items
     private fun getCartItems(): List<CartItem> {
         // TODO: Implement your logic to retrieve cart items
         return emptyList()
     }
 
     override fun onItemClick(product: Product) {
-        // Assuming product is an instance of the Product class in your code
 
-        // Add the selected product to the cart
         val cartItem = CartItem(
             name = product.name,
             price = product.price.replace("Rp ", "").replace(",", "").toDoubleOrNull() ?: 0.0,
@@ -105,7 +102,6 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
 
             cartItemsRecyclerView.layoutManager = LinearLayoutManager(this)
 
-            // Pass the OnQuantityChangeListener to the adapter
             val adapter = CartItemAdapter(cartItems, this, object : OnQuantityChangeListener {
                 override fun onQuantityChanged() {
                     updateCartUI()
@@ -137,10 +133,8 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
     }
 
     private fun checkoutViaWhatsApp(cartItems: List<CartItem>) {
-        // Prepare the message with the required information
         val message = buildWhatsAppMessage(cartItems)
 
-        // Open WhatsApp with the pre-filled message
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
         intent.`package` = "com.whatsapp"
@@ -155,7 +149,6 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
     }
 
     private fun buildWhatsAppMessage(cartItems: List<CartItem>): String {
-        // Build a message with the necessary information
         val builder = StringBuilder()
         builder.append("Hai, Saya ingin memesan:\n")
 
@@ -166,8 +159,7 @@ class CartActivity : AppCompatActivity(), OnItemClickListener {
         val totalPrice = calculateTotalPrice(cartItems)
         builder.append("Total Harga: Rp $totalPrice\n")
 
-        // Add other information like name, address, and date if available
-        // Replace these with actual values from your app
+
         builder.append("Nama: Rijal\n")
         builder.append("Alamat: Bandung, Jl.Heaven 123\n")
         builder.append("Tanggal: ${getCurrentDate()}\n")

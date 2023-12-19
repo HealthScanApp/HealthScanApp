@@ -26,7 +26,6 @@ class ProductDetailActivity : AppCompatActivity() {
         detailProductPriceTextView.text = productPrice
         otherDetailTextView.text = productName?.let { getOtherDetailText(it) }
 
-        // Set other details as needed
 
         val backButton: ImageView = findViewById(R.id.icon_back)
         backButton.setOnClickListener {
@@ -41,7 +40,7 @@ class ProductDetailActivity : AppCompatActivity() {
             "Sayur" -> "Other Detail for Sayur: Your other detail text here"
             "Obat" -> "Other Detail for Obat: Your other detail text here"
             "Madu" -> "Other Detail for Madu: Your other detail text here"
-            // Add more cases as needed
+
             else -> "Other Detail: Your default other detail text here"
         }
     }

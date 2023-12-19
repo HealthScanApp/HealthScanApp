@@ -80,20 +80,18 @@ class PasswordEditTextView : AppCompatEditText {
     }
 
     private fun updatePasswordVisibility() {
-        // Toggle password visibility and update eye icon
+
         transformationMethod = if (isPasswordVisible) {
-            null // Show the password if isPasswordVisible is true
+            null
         } else {
-            PasswordTransformationMethod.getInstance() // Otherwise, use PasswordTransformationMethod
+            PasswordTransformationMethod.getInstance()
         }
 
-        // Apply the updated transformation
         transformationMethod?.let {
             setSelection(text?.length ?: 0)
             eyeIcon.updateEyeIcon()
         }
 
-        // Clear focus to ensure the transformation is applied immediately
         clearFocus()
     }
 }

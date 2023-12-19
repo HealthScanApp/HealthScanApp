@@ -25,22 +25,18 @@ class ButtonAddtoCart : AppCompatButton {
     }
 
     private fun init() {
-        // Ganti warna gradien sesuai keinginan Anda
+
         val colors = intArrayOf(
             ContextCompat.getColor(context, R.color.gradient_merah_start),
             ContextCompat.getColor(context, R.color.gradient_merah_end)
         )
 
-        // Buat objek GradientDrawable
         val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, colors)
 
-        // Set corner radius untuk sudut yang membulat
         gradientDrawable.cornerRadius = resources.getDimension(R.dimen.button_corner_radius)
 
-        // Set drawable latar belakang untuk tombol
         background = gradientDrawable
 
-        // Atur warna teks
         setTextColor(ContextCompat.getColor(context, R.color.white))
     }
 }

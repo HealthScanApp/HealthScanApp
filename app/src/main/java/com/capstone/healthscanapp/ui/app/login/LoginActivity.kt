@@ -34,12 +34,12 @@ class LoginActivity : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
         prefsManager = PrefsManager(this)
 
-        // Initialize eyeIcon
+
         eyeIcon = findViewById(R.id.eyeIcon)
         eyeIcon.setEncryptedTransformation(PasswordTransformationMethod.getInstance())
 
         eyeIcon.setOnClickListener {
-            // Toggle the visibility of the password field
+
             isPasswordVisible = !isPasswordVisible
             togglePasswordVisibility()
         }
@@ -59,19 +59,19 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passwordEditText.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
-                // Menampilkan pesan kesalahan jika email atau password kosong
+
                 binding.emailEditText.error = "Jangan Kosong"
                 binding.passwordEditText.error = "Jangan Kosong"
             } else {
                 showLoading(true)
-                // Melakukan proses login
+
                 firebaseAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         showLoading(false)
                         if (task.isSuccessful) {
                             val user = firebaseAuth.currentUser
                             if (user != null && user.isEmailVerified) {
-                                // Menyimpan informasi login dan mengarahkan ke halaman yang tepat
+
                                 prefsManager.userEmail = email
                                 prefsManager.isExampleLogin = true
 
@@ -79,27 +79,27 @@ class LoginActivity : AppCompatActivity() {
                                 val isFirstRun = prefs.getBoolean("isFirstRuns", true)
 
                                 val intent = if (isFirstRun) {
-                                    // Menunjukkan IndeksTubuhActivity jika isFirstRun true
+
                                     Intent(this@LoginActivity, IndeksTubuhActivity::class.java)
                                 } else {
-                                    // Menuju HomeActivity jika isFirstRun false
+
                                     Intent(this@LoginActivity, HomeActivity::class.java)
                                 }
 
                                 startActivity(intent)
 
-                                // Mengubah nilai isFirstRun agar tidak menampilkan IndeksTubuhActivity lagi
+
                                 prefs.edit().putBoolean("isFirstRuns", false).apply()
                                 finish()
                             } else {
-                                // Menampilkan pesan jika verifikasi email belum dilakukan
+
                                 Toast.makeText(
                                     baseContext, "Tolong verifikasi email anda, sebelum login",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
                         } else {
-                            // Menampilkan pesan jika autentikasi gagal
+
                             binding.emailEditText.error = "Email salah"
                             binding.passwordEditText.error = "Password salah"
                         }
@@ -110,22 +110,17 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun togglePasswordVisibility() {
-        // Toggle the visibility of the password field
+
         isPasswordVisible = !isPasswordVisible
 
-        // Update the appropriate transformation for the password field
         val transformation = eyeIcon.getPasswordTransformation()
 
-        // Set the appropriate transformation for the password field
         binding.passwordEditText.transformationMethod = transformation
 
-        // Toggle the eye state
         eyeIcon.toggleEyeState()
 
-        // Update the eye icon
         eyeIcon.updateEyeIcon()
 
-        // Clear focus to ensure the transformation is applied immediately
         binding.passwordEditText.clearFocus()
     }
 
