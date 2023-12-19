@@ -8,6 +8,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -86,6 +87,7 @@ class CameraActivity : AppCompatActivity() {
 
         binding.btnPrediksi.setOnClickListener {
             if (::bitmap.isInitialized) {
+                showLoading(true)
                 val tensorImage = TensorImage(DataType.FLOAT32)
 
                 val resizedBitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
@@ -119,18 +121,18 @@ class CameraActivity : AppCompatActivity() {
                     "nutrition" to predictedNutrition,
                     "timestamp" to currentTimeStamp
                 )
-
-
                 if (currentUserID.isNotEmpty()) {
                     firestore.collection("users")
                         .document(currentUserID)
                         .collection("riwayat_konsumsi")
                         .add(dataKonsumsi)
                         .addOnSuccessListener {documentReference ->
-                            showToast("Data Konsumsimu berhasil disimpan")
+                            showToast("Data konsumsimu berhasil disimpan")
+                            showLoading(false)
                         }
                         .addOnFailureListener { e ->
                             showToast("Gagal menyimpan data konsumsi : ${e.message}")
+                            showLoading(false)
                         }
                 }
 
@@ -207,6 +209,7 @@ class CameraActivity : AppCompatActivity() {
             }
         }
     }
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -230,6 +233,9 @@ class CameraActivity : AppCompatActivity() {
     }
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }
 
