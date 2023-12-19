@@ -61,6 +61,7 @@ class CameraActivity : AppCompatActivity() {
         interpreter = Interpreter(loadModelFile(), Interpreter.Options())
 
         val labels = application.assets.open("labels.txt").bufferedReader().readLines()
+        val nutrition = application.assets.open("nutrition.txt").bufferedReader().readLines()
 
 
         if (!allPermissionsGranted()) {
@@ -95,7 +96,14 @@ class CameraActivity : AppCompatActivity() {
                         maxIdx = index
                     }
                 }
-                binding.edtDescription.text = labels[maxIdx]
+
+                val predictedLabel = labels[maxIdx]
+                val predictedNutrition = nutrition[maxIdx] // Mendapatkan data nutrisi berdasarkan indeks makanan terprediksi
+
+                binding.edtDescription.text = predictedLabel
+                binding.edtNutrion.text = predictedNutrition
+
+                //binding.edtDescription.text = labels[maxIdx]
             } else {
                 Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show()
             }

@@ -97,6 +97,8 @@
         android:gravity="start"
         android:hint="@string/desc_prediksi"
         android:importantForAutofill="no"
+        android:textColor="@color/black"
+        android:textSize="16dp"
         android:padding="14dp"
         android:background="@drawable/shape_rectangel_putih"
         app:layout_constraintBottom_toTopOf="@+id/btn_upload"
@@ -104,6 +106,22 @@
         app:layout_constraintStart_toStartOf="@+id/btn_camera"
         app:layout_constraintTop_toBottomOf="@+id/btn_camera" />
 
+
+    <TextView
+        android:id="@+id/edt_nutrion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="start"
+        android:importantForAutofill="no"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:padding="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_upload"
+        app:layout_constraintEnd_toEndOf="@+id/btn_gallery"
+        app:layout_constraintStart_toStartOf="@+id/btn_camera"
+        app:layout_constraintTop_toBottomOf="@+id/btn_camera" />
 
     <com.capstone.healthscanapp.ui.app.custome_view.MyButtonClass
         android:id="@+id/btn_prediksi"
