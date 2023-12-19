@@ -9,10 +9,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.data.HealthItem
 
-class HealthItemAdapter(private val healthItems: List<HealthItem>) :
-    RecyclerView.Adapter<HealthItemAdapter.ViewHolder>() {
+class HealthItemAdapter(
+    private val healthItems: List<HealthItem>,
+    private val onItemClick: (HealthItem) -> Unit
+) : RecyclerView.Adapter<HealthItemAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick(healthItems[position])
+                }
+            }
+        }
+
         val titleTextView: TextView = itemView.findViewById(R.id.itemTitle)
         val descriptionTextView: TextView = itemView.findViewById(R.id.itemDescription)
         val itemImageView: ImageView = itemView.findViewById(R.id.itemImage)
@@ -36,3 +47,4 @@ class HealthItemAdapter(private val healthItems: List<HealthItem>) :
         return healthItems.size
     }
 }
+

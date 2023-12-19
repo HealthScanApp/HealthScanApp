@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.healthscanapp.R
+import com.capstone.healthscanapp.adapter.ConsultationItemAdapter
 import com.capstone.healthscanapp.adapter.HealthItemAdapter
 import com.capstone.healthscanapp.data.HealthItem
 
@@ -18,7 +19,6 @@ class TesKesehatanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tes_kesehatan)
 
-        // Your existing code for initializing RecyclerView and adapter
         val healthItems = listOf(
             HealthItem(
                 "Tes Kesehatan Jantung",
@@ -34,26 +34,28 @@ class TesKesehatanActivity : AppCompatActivity() {
 
         val recyclerView: RecyclerView = findViewById(R.id.productsRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = HealthItemAdapter(healthItems)
 
-        // Add back button functionality with pop-up message
+        val adapter = HealthItemAdapter(healthItems) { item ->
+            showPopupMessage(item)
+        }
+
+        recyclerView.adapter = adapter
+
         val backButton: ImageView = findViewById(R.id.icon_back)
         backButton.setOnClickListener {
-            showPopupMessage()
+            onBackPressed()
         }
     }
 
-    private fun showPopupMessage() {
+    private fun showPopupMessage(item: HealthItem) {
         val builder = AlertDialog.Builder(this)
         val view = LayoutInflater.from(this).inflate(R.layout.popup_message_fitur, null)
         builder.setView(view)
         val alertDialog = builder.create()
 
-        // Set a message in the popup
         val message = view.findViewById<TextView>(R.id.popupMessage)
         message.text = "Maaf, fitur ini masih dalam pengembangan."
 
-        // Add a button to close the popup
         val closeButton = view.findViewById<Button>(R.id.closeButton)
         closeButton.setOnClickListener {
             alertDialog.dismiss()

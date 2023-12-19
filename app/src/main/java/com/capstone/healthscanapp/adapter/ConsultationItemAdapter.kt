@@ -8,10 +8,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.capstone.healthscanapp.R
 import com.capstone.healthscanapp.data.ConsultationItem
 
-class ConsultationItemAdapter(private val consultationItems: List<ConsultationItem>) :
-    RecyclerView.Adapter<ConsultationItemAdapter.ViewHolder>() {
+class ConsultationItemAdapter(
+    private val consultationItems: List<ConsultationItem>,
+    private val onItemClick: (ConsultationItem) -> Unit
+) : RecyclerView.Adapter<ConsultationItemAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick(consultationItems[position])
+                }
+            }
+        }
+
         val doctorName: TextView = itemView.findViewById(R.id.itemTitle)
         val specialization: TextView = itemView.findViewById(R.id.itemDescription)
         val tapToChat: TextView = itemView.findViewById(R.id.tapToChatText)
