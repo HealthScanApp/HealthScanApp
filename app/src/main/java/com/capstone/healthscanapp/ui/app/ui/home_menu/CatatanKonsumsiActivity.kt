@@ -44,13 +44,11 @@ class CatatanKonsumsiActivity : AppCompatActivity() {
                 .collection("riwayat_konsumsi")
                 .get()
                 .addOnSuccessListener { documents ->
-                    // Clear the list before adding new data
                     historyList.clear()
                     for (document in documents) {
                         val history = document.toObject(RiwayatMakanan::class.java)
                         historyList.add(history)
                     }
-                    // Notify the adapter after adding all data
                     riwayatMakananAdapter.notifyDataSetChanged()
                 }
                 .addOnFailureListener { e ->
@@ -58,4 +56,6 @@ class CatatanKonsumsiActivity : AppCompatActivity() {
                 }
         }
     }
+
+
 }

@@ -56,19 +56,6 @@
         tools:listitem="@layout/card_history" />
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="@color/white"
-        app:maxImageSize="30dp"
-        android:src="@drawable/icon_sampah"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:contentDescription="@string/todo" />
-
 
     <ProgressBar
         android:id="@+id/progressBar"
