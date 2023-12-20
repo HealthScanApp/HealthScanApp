@@ -1,6 +1,7 @@
 package com.capstone.healthscanapp.ui.app.custome_view
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
@@ -37,6 +38,20 @@ class ButtonSignUpView : AppCompatButton {
 
         background = gradientDrawable
 
+        val colorStateList = ColorStateList(
+            arrayOf(
+                intArrayOf(android.R.attr.state_pressed),
+                intArrayOf(android.R.attr.state_focused),
+                intArrayOf()
+            ),
+            intArrayOf(
+                ContextCompat.getColor(context, R.color.red),
+                ContextCompat.getColor(context, R.color.red),
+                ContextCompat.getColor(context, R.color.gradient_end)
+            )
+        )
+
+        backgroundTintList = colorStateList
         setTextColor(ContextCompat.getColor(context, R.color.white))
     }
 }
