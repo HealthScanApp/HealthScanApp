@@ -14,8 +14,8 @@
         android:layout_marginBottom="12dp"
         android:src="@drawable/icon_apps"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
-        tools:layout_editor_absoluteX="138dp">
-    </ImageView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></ImageView>
 
     <TextView
         android:id="@+id/textView4"
