@@ -9,7 +9,7 @@ This capstone project was created in response to the increasingly troubling heal
 #
 
 <p align="center">
-  <img src="poto/Full.png" alt="HealthScan Full" style="border-radius: 50%; width: 750px; height: 180px;">
+  <img src="poto/Full.png" alt="HealthScan Full" style="border-radius: 50%; width: 750px; height: 450px;">
 </p>
 
 #
