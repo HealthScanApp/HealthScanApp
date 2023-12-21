@@ -81,3 +81,24 @@ Apk file for app installation can be found on our latest release [here](https://
 - **(ML) M247BSX0606**: Najwa Dwi Febrianti
 - **(CC) C525BSX3872**: Wahyu Rizqi Amalia
 - **(CC) C161BSY3571**: Riki Awaludin  
+
+# Features of HealthScan
+
+| Feature                    | Description                                                                                                     |
+|----------------------------|-----------------------------------------------------------------------------------------------------------------|
+| Splash Screen              | A visually appealing splash screen to welcome users and provide a smooth onboarding experience.                  |
+| Sign In                    | Secure authentication for registered users to access the app.                                                    |
+| Sign Up                    | User-friendly registration process for new users to create an account.                                            |
+| Sign In with Google        | Convenient option for users to sign in using their Google accounts.                                                |
+| Body Mass Index (BMI) Page | An informative page to calculate and monitor the user's Body Mass Index.                                          |
+| Home Page                  | Central hub for users to navigate and access various features of the HealthScan app.                                |
+| Food Scan and Image Upload | Functionality to scan food items and upload images for nutritional analysis.                                      |
+| Consumption History        | Keep track of scanned food items with a comprehensive consumption history.                                        |
+| Nutrient Store Page        | Explore a variety of nutritious products available for purchase.                                                  |
+| Product Details Page       | Detailed information about specific products in the Nutrient Store.                                                |
+| Shopping Cart Page         | Conveniently manage and review selected items before making a purchase.                                            |
+| Health Tests Page          | Access health assessments and tests to monitor overall well-being.                                                 |
+| Consultation Page          | Seek professional advice and consultations for health-related queries.                                            |
+| Profile Page               | Personalized user profiles with customizable settings and preferences.                                            |
+| Notification Page          | Stay informed with notifications about app updates and health-related alerts.                                      |
+| Privacy Policy Page        | Clearly defined privacy policy to ensure user data protection and transparency.                                    |
