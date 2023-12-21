@@ -42,7 +42,7 @@ This capstone project was created in response to the increasingly troubling heal
 # Installation
 Apk file for app installation can be found on our latest release [here](https://bit.ly/HealthScanApp),Please beware that this app require permission to open gallery and also require Android version Lollipop 5.0 or above.
 
-# Video Demo App
+# Video Installation & Demo App
 [![HealthScan Demo](https://img.youtube.com/vi/VrG6rMf-t0M/0.jpg)](https://www.youtube.com/watch?v=VrG6rMf-t0M?autoplay=1)
 
 # Project Documents:
