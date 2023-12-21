@@ -60,3 +60,24 @@ This capstone project was created in response to the increasingly troubling heal
 ### Privacy Policy
 - **Privacy Policy Page**: Clearly defined privacy policy to ensure user data protection and transparency.
 
+## Introduce App
+[![HealthScan Introduce](https://img.youtu.be/y-TkjPcoAx8/0.jpg)](https://youtu.be/y-TkjPcoAx8)
+
+## Installation
+Apk file for app installation can be found on our latest release [here](https://bit.ly/HealthScanApp),Please beware that this app require permission to open gallery and also require Android version Lollipop 5.0 or above.
+
+## App Demo
+[![HealthScan Demo](https://img.youtu.be/VrG6rMf-t0M/0.jpg)](https://youtu.be/VrG6rMf-t0M)
+
+## Project Documents:
+- [Project Brief](https://docs.google.com/document/d/1ccTI_XTJYurFqLjXduRLQWdjIyV56cinfTyRKx5fURQ/edit#heading=h.qf0nfa3etlmx)
+- [Final Presentation](https://www.canva.com/design/DAF2x2oiILg/YLlfhOWR0VDerYGHQ_3wRg/edit?utm_content=DAF2x2oiILg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+## Capstone Project Team:
+- **(MD) A525BSY2453**: Mohamad Aji Hermansya
+- **(MD) A012BSY2739**: Fahrijal Syawaludin
+- **(ML) M198BSY0401**: Muammar Khadafi 
+- **(ML) M245BSY1119**: Adji Maulana Asror
+- **(ML) M247BSX0606**: Najwa Dwi Febrianti
+- **(CC) C525BSX3872**: Wahyu Rizqi Amalia
+- **(CC) C161BSY3571**: Riki Awaludin  
