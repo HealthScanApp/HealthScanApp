@@ -1,6 +1,6 @@
 # HealthScan: Keeping Your Health in Check with Cutting-edge Nutrition Monitoring
 
-![Logo](icon_apps.png)
+![Logo](poto/icon_apps.png)
 
 
 
