@@ -14,7 +14,7 @@ This capstone project was created in response to the increasingly troubling heal
 
 #
 
-## Features of HealthScan:
+# Features of HealthScan:
 
 ### Welcome Screen
 - **Splash Screen**: A visually appealing splash screen to welcome users and provide a smooth onboarding experience.
@@ -60,20 +60,20 @@ This capstone project was created in response to the increasingly troubling heal
 ### Privacy Policy
 - **Privacy Policy Page**: Clearly defined privacy policy to ensure user data protection and transparency.
 
-## Video Introduce App 
+# Video Introduce App 
 [![HealthScan Introduce](https://img.youtube.com/vi/y-TkjPcoAx8/0.jpg)](https://www.youtube.com/watch?v=y-TkjPcoAx8?autoplay=1)
 
-## Installation
+# Installation
 Apk file for app installation can be found on our latest release [here](https://bit.ly/HealthScanApp),Please beware that this app require permission to open gallery and also require Android version Lollipop 5.0 or above.
 
-## Video Demo App
+# Video Demo App
 [![HealthScan Demo](https://img.youtube.com/vi/VrG6rMf-t0M/0.jpg)](https://www.youtube.com/watch?v=VrG6rMf-t0M?autoplay=1)
 
-## Project Documents:
+# Project Documents:
 - [Project Brief](https://docs.google.com/document/d/1ccTI_XTJYurFqLjXduRLQWdjIyV56cinfTyRKx5fURQ/edit#heading=h.qf0nfa3etlmx)
 - [Final Presentation](https://www.canva.com/design/DAF2x2oiILg/YLlfhOWR0VDerYGHQ_3wRg/edit?utm_content=DAF2x2oiILg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-## Capstone Project Team:
+# Capstone Project Team:
 - **(MD) A525BSY2453**: Mohamad Aji Hermansya
 - **(MD) A012BSY2739**: Fahrijal Syawaludin
 - **(ML) M198BSY0401**: Muammar Khadafi 
