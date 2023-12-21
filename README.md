@@ -61,7 +61,12 @@ This capstone project was created in response to the increasingly troubling heal
 - **Privacy Policy Page**: Clearly defined privacy policy to ensure user data protection and transparency.
 
 ## Introduce App
-[![HealthScan Introduce](https://img.youtube.com/vi/y-TkjPcoAx8/0.jpg)](https://www.youtube.com/watch?v=y-TkjPcoAx8?autoplay=1)
+<p align="center">
+  <video width="750" height="500" controls autoplay loop muted>
+    <source src="video/HeatlhScanApp_Introduce_Video.mp4" type="video/mp4">
+  </video>
+</p>
+
 ## Installation
 Apk file for app installation can be found on our latest release [here](https://bit.ly/HealthScanApp),Please beware that this app require permission to open gallery and also require Android version Lollipop 5.0 or above.
 
