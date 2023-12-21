@@ -14,46 +14,46 @@ This capstone project was created in response to the increasingly troubling heal
 ## Featues of HealthScan:
 
 ### Welcome Screen
-** Splash Screen **: A visually appealing splash screen to welcome users and provide a smooth onboarding experience.
+Splash Screen: A visually appealing splash screen to welcome users and provide a smooth onboarding experience.
 
 ### User Authentication
-** Sign In **: Secure authentication for registered users to access the app.
-** Sign Up **: User-friendly registration process for new users to create an account.
-** Sign In with Google **: Convenient option for users to sign in using their Google accounts.
+Sign In: Secure authentication for registered users to access the app.
+Sign Up: User-friendly registration process for new users to create an account.
+Sign In with Google: Convenient option for users to sign in using their Google accounts.
 
 ### Health Monitoring
-** Body Mass Index (BMI) Page **: An informative page to calculate and monitor the user's Body Mass Index.
+Body Mass Index (BMI) Page: An informative page to calculate and monitor the user's Body Mass Index.
 
 ### Home
-** Home Page **: Central hub for users to navigate and access various features of the HealthScan app.
+Home Page: Central hub for users to navigate and access various features of the HealthScan app.
 
 ### Food Scan and Image Upload
-** Scan and Upload **: Functionality to scan food items and upload images for nutritional analysis.
+Scan and Upload: Functionality to scan food items and upload images for nutritional analysis.
 
 #### Consumption History
-** Consumption History **: Keep track of scanned food items with a comprehensive consumption history.
+Consumption History: Keep track of scanned food items with a comprehensive consumption history.
 
 ### Nutrient Store
-** Nutrient Store Page **: Explore a variety of nutritious products available for purchase.
+Nutrient Store Page: Explore a variety of nutritious products available for purchase.
 
 ### Product Details
-** Product Details Page **: Detailed information about specific products in the Nutrient Store.
+Product Details Page: Detailed information about specific products in the Nutrient Store.
 
 ### Shopping Cart
-** Shopping Cart Page **: Conveniently manage and review selected items before making a purchase.
+Shopping Cart Page: Conveniently manage and review selected items before making a purchase.
 
 ### Health Tests
-** Health Tests Page **: Access health assessments and tests to monitor overall well-being.
+Health Tests Page: Access health assessments and tests to monitor overall well-being.
 
 ### Consultation
-** Consultation Page **: Seek professional advice and consultations for health-related queries.
+Consultation Page: Seek professional advice and consultations for health-related queries.
 
 ### User Profile
-** Profile Page **: Personalized user profiles with customizable settings and preferences.
+Profile Page: Personalized user profiles with customizable settings and preferences.
 
 ### Notifications
-** Notification Page **: Stay informed with notifications about app updates and health-related alerts.
+Notification Page: Stay informed with notifications about app updates and health-related alerts.
 
 ### Privacy Policy
-** Privacy Policy Page **: Clearly defined privacy policy to ensure user data protection and transparency.
+Privacy Policy Page: Clearly defined privacy policy to ensure user data protection and transparency.
 
